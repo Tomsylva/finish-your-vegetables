@@ -4,3 +4,4 @@ export const LOGINPAGE = "/auth/login";
 export const PROTECTEDPAGE = "/protected";
 export const ABOUTPAGE = "/about";
 export const AVAILABLEPAGE = "/available";
+export const PROFILEPAGE = "/profile";
