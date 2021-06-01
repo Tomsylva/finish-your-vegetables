@@ -3,6 +3,7 @@ import { Switch } from "react-router-dom";
 import LoadingComponent from "./components/Loading";
 import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
 import LogIn from "./pages/LogIn";
 import ProtectedPage from "./pages/ProtectedPage";
 import Signup from "./pages/Signup";
@@ -78,6 +79,7 @@ export default function App() {
           component={ProtectedPage}
           user={user}
         />
+        <NormalRoute exact path={PATHS.ABOUTPAGE} component={AboutPage} />
       </Switch>
     </div>
   );

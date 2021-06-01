@@ -1,23 +1,23 @@
-import logo from "../logo.svg";
+import * as PATHS from "../utils/paths";
+import * as CONSTS from "../utils/consts";
+import { Link } from "react-router-dom";
 import "../App.css";
+import "./Home.css";
 
 function HomePage() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Finish Your Damn Vegetables!</h1>
+      <Link to={PATHS.LOGINPAGE} className="authLink">
+        I'm hungry!
+      </Link>
+      <Link to={PATHS.ABOUTPAGE} className="regularLink">
+        What even is this?
+      </Link>
+      <p>Not yet a member?</p>
+      <Link to={PATHS.SIGNUPPAGE} className="authLink">
+        Sign up
+      </Link>
     </div>
   );
 }
