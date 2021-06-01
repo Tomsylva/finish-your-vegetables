@@ -12,6 +12,7 @@ import ProtectedRoute from "./routing-components/ProtectedRoute";
 import { getLoggedIn, logout } from "./services/auth";
 import * as PATHS from "./utils/paths";
 import * as CONSTS from "./utils/consts";
+import AvailablePage from "./pages/AvailablePage";
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -73,13 +74,13 @@ export default function App() {
           authenticate={authenticate}
           component={LogIn}
         />
+        <NormalRoute exact path={PATHS.ABOUTPAGE} component={AboutPage} />
         <ProtectedRoute
           exact
-          path={PATHS.PROTECTEDPAGE}
-          component={ProtectedPage}
+          path={PATHS.AVAILABLEPAGE}
+          component={AvailablePage}
           user={user}
         />
-        <NormalRoute exact path={PATHS.ABOUTPAGE} component={AboutPage} />
       </Switch>
     </div>
   );

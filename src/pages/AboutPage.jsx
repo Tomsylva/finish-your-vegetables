@@ -6,7 +6,7 @@ import * as CONSTS from "../utils/consts";
 function AboutPage() {
   return (
     <div>
-      <h1>Welcome to EYDV! We hope you are hungry...</h1>
+      <h1>Welcome to FYDV! We hope you are hungry...</h1>
       <p>
         The average American wastes roughly 0.45kg of food every single day.
         Roughly one third of the food produced in the world is wasted or lost.
@@ -20,6 +20,10 @@ function AboutPage() {
       <p>
         Basically, you get food for cheap, and restaurants will waste less food.
         It's a win/win situation!
+      </p>
+      <p>
+        If you are a restaurant with food to offer, create an account as normal,
+        and you will have the option to add your restaurant after signing in.
       </p>
       <p>
         We look forward to helping you to help make the world a slightly better
