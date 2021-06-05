@@ -83,6 +83,7 @@ export default function App() {
           user={user}
         />
         <ProtectedRoute
+          exact
           path={PATHS.PROFILEPAGE}
           component={ProfilePage}
           user={user}
