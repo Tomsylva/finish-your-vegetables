@@ -14,6 +14,8 @@ import { getLoggedIn, logout } from "./services/auth";
 import * as PATHS from "./utils/paths";
 import * as CONSTS from "./utils/consts";
 import AvailablePage from "./pages/AvailablePage";
+import SingleRestaurantPage from "./pages/SingleRestaurantPage";
+import SingleMealPage from "./pages/SingleMealPage";
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -88,6 +90,18 @@ export default function App() {
           component={ProfilePage}
           user={user}
           authenticate={authenticate}
+        />
+        <NormalRoute
+          exact
+          path={`${PATHS.RESTAURANT}/:restaurantName`}
+          user={user}
+          component={SingleRestaurantPage}
+        />
+        <NormalRoute
+          exact
+          path={`${PATHS.SINGLEMEAL}/:mealId`}
+          user={user}
+          component={SingleMealPage}
         />
       </Switch>
     </div>

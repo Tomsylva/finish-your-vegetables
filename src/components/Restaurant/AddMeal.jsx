@@ -1,25 +1,26 @@
 import React from "react";
 import * as CONSTS from "../../utils/consts";
-import * as RESTAURANT_SERVICE from "../../services/restaurant.service.js";
+import * as MEAL_SERVICE from "../../services/meal.service";
 import * as PATHS from "../../utils/paths";
 
-function AddRestaurant(props) {
+function AddMeal(props) {
   const {
     user,
-    restaurantName,
+    mealName,
     description,
-    location,
     otherInfo,
-    contact,
+    mealType,
+    price,
     history,
+    restaurant,
   } = props;
 
   const [form, setForm] = React.useState({
-    restaurantName: restaurantName,
+    mealName: mealName,
     description: description,
-    location: location,
     otherInfo: otherInfo,
-    contact: contact,
+    mealType: mealType,
+    price: price,
   });
 
   function handleChange(event) {
@@ -29,55 +30,47 @@ function AddRestaurant(props) {
   function handleSubmit(event) {
     event.preventDefault();
     const accessToken = localStorage.getItem(CONSTS.ACCESS_TOKEN);
-    RESTAURANT_SERVICE.ADD_RESTAURANT(
-      { ...form, userId: user._id },
+    MEAL_SERVICE.ADD_MEAL(
+      {
+        ...form,
+        userId: user._id,
+        restaurant: restaurant,
+      },
       accessToken
     )
       .then((response) => {
         console.log(response);
-        history.push(PATHS.AVAILABLEPAGE);
+        history.push(PATHS.AVAILABLEPAGE); //CHANGE LATER
       })
       .catch((err) => {
         console.error(err);
       });
   }
-
   return (
     <div>
-      <p>Please fill in all the fields below</p>
-      <form className="ProfilePage-form" onSubmit={handleSubmit}>
+      <p>Please fill in the fields below</p>
+      <form className="RestaurantPage-form" onSubmit={handleSubmit}>
         <div>
-          <label>Restaurant Name</label>
+          <label>Name of meal</label>
           <br />
           <input
-            name="restaurantName"
-            value={form.restaurantName}
+            name="mealName"
+            value={form.mealName}
             onChange={handleChange}
             required
           ></input>
         </div>
         <div>
-          <label>Restaurant Description</label>
+          <label>Description</label>
           <br />
           <input
             name="description"
             value={form.description}
             onChange={handleChange}
-            required
           ></input>
         </div>
         <div>
-          <label>Restaurant Location</label>
-          <br />
-          <input
-            name="location"
-            value={form.location}
-            onChange={handleChange}
-            required
-          ></input>
-        </div>
-        <div>
-          <label>Other Info/Covid Precautions</label>
+          <label>Other Info/Allergy Info</label>
           <br />
           <input
             name="otherInfo"
@@ -86,22 +79,32 @@ function AddRestaurant(props) {
           ></input>
         </div>
         <div>
-          <label>Contact Information</label>
+          <label>Meal Type (please select)</label>
+          <br />
+          <select name="mealType" value={form.mealType} onChange={handleChange}>
+            <option value="meat">Meat</option>
+            <option value="vegan">Vegan</option>
+            <option value="vegetarian">Vegetarian</option>
+          </select>
+        </div>
+        <div>
+          <label>Price</label>
           <br />
           <input
-            name="contact"
-            value={form.contact}
+            type="number"
+            name="price"
+            value={form.price}
             onChange={handleChange}
             required
           ></input>
         </div>
-        <button type="submit" className="ProfilePage-button">
-          Add Restaurant
+        <br />
+        <button type="submit" className="RestaurantPage-button">
+          Add Meal
         </button>
       </form>
-      <br />
     </div>
   );
 }
 
-export default AddRestaurant;
+export default AddMeal;
