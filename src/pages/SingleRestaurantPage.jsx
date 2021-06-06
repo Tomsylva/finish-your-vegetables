@@ -10,6 +10,7 @@ function SingleRestaurantPage(props) {
   const { history, user } = props;
   const [isLoading, setIsLoading] = useState(true);
   const [singleRestaurant, setSingleRestaurant] = useState({});
+  const [displayAddMeal, setDisplayAddMeal] = useState(false);
 
   useEffect(() => {
     axios
@@ -19,6 +20,9 @@ function SingleRestaurantPage(props) {
       .then((response) => {
         setSingleRestaurant(response.data);
         setIsLoading(false);
+        if (response.data.owner == user._id) {
+          setDisplayAddMeal(true);
+        }
       })
       .catch((err) => {
         console.error(err);
@@ -63,7 +67,9 @@ function SingleRestaurantPage(props) {
           </div>
         );
       })}
-      <AddMeal restaurant={_id} history={history} user={user} />
+      {displayAddMeal ? (
+        <AddMeal restaurant={_id} history={history} user={user} />
+      ) : null}
       <br />
       <Link to={PATHS.AVAILABLEPAGE}>Back to available meals</Link>
     </div>
