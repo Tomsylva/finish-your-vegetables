@@ -14,7 +14,6 @@ export function UPDATE_PROFILE(body, token) {
 }
 
 export function DELETE_PROFILE(token) {
-  console.log("token from service", token);
   return profileService.delete("/delete", {
     headers: {
       authorization: token,
