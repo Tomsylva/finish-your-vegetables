@@ -2,10 +2,13 @@ import React from "react";
 import * as PROFILE_SERVICE from "../../services/profile.service.js";
 import * as CONSTS from "../../utils/consts";
 // import * as PATHS from "../../utils/paths";
+// import axios from "axios";
 
 function UpdateProfile(props) {
   const { user, history } = props;
   const { username } = user;
+  // const [newUserName, setNewUserName] = React.useState(username);
+  const [userImage, setUserImage] = React.useState(user.userImage);
   const [form, setForm] = React.useState({
     username: username,
   });
@@ -14,16 +17,26 @@ function UpdateProfile(props) {
     setForm({ ...form, [event.target.name]: event.target.value });
   }
 
+  function handleImageInput(event) {
+    const image = event.target.files[0];
+    setUserImage(image);
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
+
+    const formBody = new FormData();
+    formBody.append("userImage", userImage);
+    formBody.append("username", username);
+    formBody.append("userId", user._id);
     const accessToken = localStorage.getItem(CONSTS.ACCESS_TOKEN);
-    PROFILE_SERVICE.UPDATE_PROFILE({ ...form, userId: user._id }, accessToken)
+
+    PROFILE_SERVICE.UPDATE_PROFILE(formBody, accessToken)
       .then((response) => {
-        console.log(response);
         props.authenticate(response.data.user);
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
       });
   }
 
@@ -42,7 +55,7 @@ function UpdateProfile(props) {
         props.authenticate(response.data.user);
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
       });
   }
 
@@ -57,6 +70,8 @@ function UpdateProfile(props) {
             value={form.username}
             onChange={handleChange}
           ></input>
+          <br />
+          <input type="file" onChange={handleImageInput} />
         </div>
         <button type="submit" className="ProfilePage-button">
           Submit Changes

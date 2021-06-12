@@ -1,7 +1,7 @@
 import React from "react";
 import * as CONSTS from "../../utils/consts";
 import * as MEAL_SERVICE from "../../services/meal.service";
-import * as PATHS from "../../utils/paths";
+// import * as PATHS from "../../utils/paths";
 
 function AddMeal(props) {
   const {
@@ -11,7 +11,6 @@ function AddMeal(props) {
     otherInfo,
     mealType,
     price,
-    history,
     restaurant,
   } = props;
 
@@ -39,8 +38,8 @@ function AddMeal(props) {
       accessToken
     )
       .then((response) => {
-        console.log(response);
-        history.push(PATHS.AVAILABLEPAGE); //CHANGE LATER
+        console.log("response: ", response);
+        window.location.reload(); //IS THERE A BETTER WAY TO DO THIS?
       })
       .catch((err) => {
         console.error(err);

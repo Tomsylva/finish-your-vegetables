@@ -4,7 +4,13 @@ import { Link } from "react-router-dom";
 import "../App.css";
 import "./Home.css";
 
-function HomePage() {
+function HomePage(props) {
+  const { user, history } = props;
+
+  if (user) {
+    history.push(PATHS.AVAILABLEPAGE);
+  }
+
   return (
     <div className="App">
       <h1>Finish Your Damn Vegetables!</h1>

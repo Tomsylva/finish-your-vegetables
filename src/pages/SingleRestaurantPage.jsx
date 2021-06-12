@@ -5,29 +5,40 @@ import * as PATHS from "../utils/paths";
 import { Link } from "react-router-dom";
 import AddMeal from "../components/Restaurant/AddMeal";
 import LoadingComponent from "../components/Loading";
+import UpdateRestaurant from "../components/Restaurant/UpdateRestaurant";
+import * as MEAL_SERVICE from "../services/meal.service";
 
 function SingleRestaurantPage(props) {
   const { history, user } = props;
   const [isLoading, setIsLoading] = useState(true);
   const [singleRestaurant, setSingleRestaurant] = useState({});
   const [displayAddMeal, setDisplayAddMeal] = useState(false);
+  const [displayEditRestaurant, setDisplayEditRestaurant] = useState(false);
 
-  useEffect(() => {
-    axios
-      .get(
-        `${CONSTS.SERVER_URL}${PATHS.RESTAURANT}/${props.match.params.restaurantName}`
-      )
-      .then((response) => {
-        setSingleRestaurant(response.data);
-        setIsLoading(false);
-        if (response.data.owner == user._id) {
-          setDisplayAddMeal(true);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, []);
+  function editRestaurantToggle() {
+    setDisplayEditRestaurant(!displayEditRestaurant);
+  }
+
+  useEffect(
+    () => {
+      axios
+        .get(
+          `${CONSTS.SERVER_URL}${PATHS.RESTAURANT}/${props.match.params.restaurantName}`
+        )
+        .then((response) => {
+          setSingleRestaurant(response.data);
+          setIsLoading(false);
+          if (response.data.owner === user._id) {
+            setDisplayAddMeal(true);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
 
   const {
     restaurantName,
@@ -37,10 +48,29 @@ function SingleRestaurantPage(props) {
     otherInfo,
     _id,
     meals,
+    owner,
   } = singleRestaurant;
+
+  console.log(singleRestaurant);
 
   if (isLoading) {
     return <LoadingComponent />;
+  }
+
+  function handleDelete(event, mealId) {
+    event.preventDefault();
+    const accessToken = localStorage.getItem(CONSTS.ACCESS_TOKEN);
+    MEAL_SERVICE.DELETE_MEAL(accessToken, mealId, _id)
+      .then((response) => {
+        console.log("RESTAURANT RESPONSE:", response);
+        if (response.data.success) {
+          window.location.reload();
+          //UPDATE STATE
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 
   return (
@@ -63,14 +93,40 @@ function SingleRestaurantPage(props) {
       {meals.map((meal) => {
         return (
           <div key={meal._id}>
-            <Link to={`${PATHS.SINGLEMEAL}/${meal._id}`}>{meal.mealName}</Link>
+            <Link
+              to={`${PATHS.SINGLEMEAL}/${meal._id}`}
+              owner={owner}
+              user={user}
+            >
+              {meal.mealName}
+            </Link>
+            <br />
+            {owner === user._id ? (
+              <button onClick={(e) => handleDelete(e, meal._id)}>
+                Delete {meal.name}
+              </button>
+            ) : null}
           </div>
         );
       })}
-      {displayAddMeal ? (
-        <AddMeal restaurant={_id} history={history} user={user} />
+      {displayAddMeal ? <AddMeal restaurant={_id} user={user} /> : null}
+      <br />
+      {owner === user._id ? (
+        <button
+          onClick={editRestaurantToggle}
+          className="RestaurantPage-button"
+        >
+          Edit Your Restaurant
+        </button>
       ) : null}
       <br />
+      {displayEditRestaurant ? (
+        <UpdateRestaurant
+          currentRestaurant={singleRestaurant}
+          user={user}
+          history={history}
+        />
+      ) : null}
       <Link to={PATHS.AVAILABLEPAGE}>Back to available meals</Link>
     </div>
   );

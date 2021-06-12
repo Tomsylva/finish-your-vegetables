@@ -7,7 +7,7 @@ import AddRestaurant from "../components/Profile/AddRestaurant";
 
 function ProfilePage(props) {
   const { user, authenticate, history } = props;
-  const { username } = user;
+  const { username, userImage } = user;
   const [displayUpdateProfile, setDisplayUpdateProfile] = React.useState(false);
   const [displayAddRestaurant, setDisplayAddRestaurant] = React.useState(false);
 
@@ -22,6 +22,7 @@ function ProfilePage(props) {
   return (
     <div>
       <h1>{username}'s Profile</h1>
+      <img src={userImage} alt={username} />
 
       <button onClick={profileToggle} className="ProfilePage-button">
         Update Profile
@@ -45,10 +46,7 @@ function ProfilePage(props) {
           history={history}
         />
       ) : null}
-
-      {/* <Link to={PATHS.CREATERESTAURANT}>Add your restaurant</Link> */}
       <Link to={PATHS.AVAILABLEPAGE}>Back to available meals</Link>
-      {/* <Link to={PATHS.DELETE_PROFILE}>Delete Profile</Link> */}
     </div>
   );
 }
