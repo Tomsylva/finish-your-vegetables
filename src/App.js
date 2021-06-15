@@ -96,13 +96,13 @@ export default function App() {
           user={user}
           authenticate={authenticate}
         />
-        <NormalRoute
+        <ProtectedRoute
           exact
           path={`${PATHS.RESTAURANT}/:restaurantName`}
           user={user}
           component={SingleRestaurantPage}
         />
-        <NormalRoute
+        <ProtectedRoute
           exact
           path={`${PATHS.SINGLEMEAL}/:mealId`}
           user={user}

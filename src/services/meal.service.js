@@ -25,6 +25,18 @@ export function RESERVE_MEAL(token, mealId) {
   );
 }
 
+export function UNRESERVE_MEAL(token, mealId) {
+  return mealService.put(
+    `/meal/${mealId}/unreserve`,
+    { token: token },
+    {
+      headers: {
+        authorization: token,
+      },
+    }
+  );
+}
+
 export function DELETE_MEAL(token, mealId, restaurantId) {
   return mealService.delete(`/restaurant/${restaurantId}/meal/${mealId}`, {
     headers: {

@@ -53,14 +53,14 @@ function UpdateRestaurant(props) {
     <div>
       <form className="RestaurantPage-form" onSubmit={handleSubmit}>
         <div>
-          <label>Restaurant Name</label>
+          <label>Edit {restaurantName}</label>
           <br />
-          <input
+          {/* <input
             name="restaurantName"
-            value={form.restaurantName}
-            onChange={handleChange}
+            placeholder={form.restaurantName}
+            // onChange={handleChange}
             type="text"
-          />
+          /> */}
         </div>
         <div>
           <label>Restaurant Description</label>

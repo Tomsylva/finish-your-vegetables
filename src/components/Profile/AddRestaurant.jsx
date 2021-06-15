@@ -6,11 +6,11 @@ import * as PATHS from "../../utils/paths";
 function AddRestaurant(props) {
   const {
     user,
-    restaurantName,
-    description,
-    location,
-    otherInfo,
-    contact,
+    restaurantName = "",
+    description = "",
+    location = "",
+    otherInfo = "",
+    contact = "",
     history,
   } = props;
 

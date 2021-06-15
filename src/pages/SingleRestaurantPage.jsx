@@ -116,7 +116,7 @@ function SingleRestaurantPage(props) {
           onClick={editRestaurantToggle}
           className="RestaurantPage-button"
         >
-          Edit Your Restaurant
+          {displayEditRestaurant ? <p>Hide</p> : <p>Edit Restaurant</p>}
         </button>
       ) : null}
       <br />

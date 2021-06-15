@@ -25,7 +25,7 @@ function ProfilePage(props) {
       <img src={userImage} alt={username} />
 
       <button onClick={profileToggle} className="ProfilePage-button">
-        Update Profile
+        {displayUpdateProfile ? <p>Hide</p> : <p>Update Profile</p>}
       </button>
       <br />
       {displayUpdateProfile ? (
@@ -36,7 +36,7 @@ function ProfilePage(props) {
         />
       ) : null}
       <button onClick={addRestaurantToggle} className="ProfilePage-button">
-        Add Your Restaurant
+        {displayAddRestaurant ? <p>Hide</p> : <p>Add Your Restaurant</p>}
       </button>
       <br />
       {displayAddRestaurant ? (

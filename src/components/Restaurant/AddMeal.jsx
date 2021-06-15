@@ -6,11 +6,11 @@ import * as MEAL_SERVICE from "../../services/meal.service";
 function AddMeal(props) {
   const {
     user,
-    mealName,
-    description,
-    otherInfo,
-    mealType,
-    price,
+    mealName = "",
+    description = "",
+    otherInfo = "",
+    mealType = "meat",
+    price = 0,
     restaurant,
   } = props;
 
