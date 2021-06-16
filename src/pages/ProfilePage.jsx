@@ -23,6 +23,14 @@ function ProfilePage(props) {
     <div>
       <h1>{username}'s Profile</h1>
       <img src={userImage} alt={username} />
+      <h3>Order History</h3>
+      {user.history.map((order) => {
+        return (
+          <div key={order}>
+            <p>{order}</p>
+          </div>
+        );
+      })}
 
       <button onClick={profileToggle} className="ProfilePage-button">
         {displayUpdateProfile ? <p>Hide</p> : <p>Update Profile</p>}

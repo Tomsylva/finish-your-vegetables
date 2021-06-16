@@ -7,6 +7,7 @@ import AddMeal from "../components/Restaurant/AddMeal";
 import LoadingComponent from "../components/Loading";
 import UpdateRestaurant from "../components/Restaurant/UpdateRestaurant";
 import * as MEAL_SERVICE from "../services/meal.service";
+import RestaurantPortal from "../components/Restaurant/RestaurantPortal";
 
 function SingleRestaurantPage(props) {
   const { history, user } = props;
@@ -100,6 +101,7 @@ function SingleRestaurantPage(props) {
             >
               {meal.mealName}
             </Link>
+            {meal.reserved ? <p>RESERVED</p> : null}
             <br />
             {owner === user._id ? (
               <button onClick={(e) => handleDelete(e, meal._id)}>
@@ -128,6 +130,7 @@ function SingleRestaurantPage(props) {
         />
       ) : null}
       <Link to={PATHS.AVAILABLEPAGE}>Back to available meals</Link>
+      <RestaurantPortal restaurant={singleRestaurant} />
     </div>
   );
 }

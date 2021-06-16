@@ -12,6 +12,8 @@ export const RESTAURANT = "/restaurant";
 
 export const SINGLEMEAL = "/meal";
 
+export const ALLMEALS = "/meal/showAll";
+
 // export const EDIT_RESTAURANT = `/${RESTAURANT}/edit`;
 // export const DELETE_RESTAURANT = `/${RESTAURANT}/delete`;
 // export const EDIT_MEAL = `${RESTAURANT}/edit-meal`;

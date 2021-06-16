@@ -37,6 +37,10 @@ export function UNRESERVE_MEAL(token, mealId) {
   );
 }
 
+export function COLLECT_MEAL(userId) {
+  return mealService.get(`/meal/${userId}/collect`);
+}
+
 export function DELETE_MEAL(token, mealId, restaurantId) {
   return mealService.delete(`/restaurant/${restaurantId}/meal/${mealId}`, {
     headers: {
