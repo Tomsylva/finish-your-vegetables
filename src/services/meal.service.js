@@ -37,8 +37,47 @@ export function UNRESERVE_MEAL(token, mealId) {
   );
 }
 
+export function UNRESERVE_MEAL_RESTAURANT(token, currentOwner, mealId) {
+  return mealService.put(
+    `/meal/${mealId}/unreserve/restaurant`,
+    { token: token, currentOwner: currentOwner },
+    {
+      headers: {
+        authorization: token,
+      },
+    }
+  );
+}
+
+export function COMPLETE_ORDER(
+  token,
+  mealId,
+  currentOwner,
+  currentRestaurant,
+  customerId
+) {
+  return mealService.put(
+    `/meal/${mealId}/complete`,
+    {
+      token: token,
+      currentOwner: currentOwner,
+      currentRestaurant: currentRestaurant,
+      customerId: customerId,
+    },
+    {
+      headers: {
+        authorization: token,
+      },
+    }
+  );
+}
+
 export function COLLECT_MEAL(userId) {
   return mealService.get(`/meal/${userId}/collect`);
+}
+
+export function SHOW_INFO(userId) {
+  return mealService.get(`/meal/${userId}/completed`);
 }
 
 export function DELETE_MEAL(token, mealId, restaurantId) {

@@ -4,9 +4,10 @@ import * as CONSTS from "../../utils/consts";
 
 function UpdateRestaurant(props) {
   const { currentRestaurant, /*user,*/ history } = props;
-  //   const [restaurantImage, setRestaurantImage] = React.useState(
-  //     currentRestaurant.image
-  //   );
+  const [restaurantImage, setRestaurantImage] = React.useState(
+    currentRestaurant.image
+  );
+
   const { restaurantName, description, otherInfo, location } =
     currentRestaurant;
   const [form, setForm] = React.useState({
@@ -16,7 +17,7 @@ function UpdateRestaurant(props) {
     location: location,
   });
   const accessToken = localStorage.getItem(CONSTS.ACCESS_TOKEN);
-  //IMAGE
+
   function handleChange(event) {
     setForm({ ...form, [event.target.name]: event.target.value });
   }
@@ -28,7 +29,35 @@ function UpdateRestaurant(props) {
       .then((response) => {
         if (response.data.success) {
           window.location.reload();
+          //UPDATE STATE
         }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
+  function handleImageInput(event) {
+    const image = event.target.files[0];
+    setRestaurantImage(image);
+  }
+
+  function handleImage(event) {
+    event.preventDefault();
+    if (!restaurantImage) {
+      //MESSAGE HERE/ERROR STATE
+    }
+    const formBody = new FormData();
+    formBody.append("image", restaurantImage);
+    const accessToken = localStorage.getItem(CONSTS.ACCESS_TOKEN);
+    const restaurantId = currentRestaurant._id;
+
+    RESTAURANT_SERVICE.UPDATE_IMAGE(formBody, accessToken, restaurantId)
+      .then((response) => {
+        console.log("RESPONSE: ", response);
+        setRestaurantImage(response.data.updatedRestaurant.image);
+        window.location.reload();
+        //UPDATE STATE
       })
       .catch((err) => {
         console.error(err);
@@ -55,12 +84,6 @@ function UpdateRestaurant(props) {
         <div>
           <label>Edit {restaurantName}</label>
           <br />
-          {/* <input
-            name="restaurantName"
-            placeholder={form.restaurantName}
-            // onChange={handleChange}
-            type="text"
-          /> */}
         </div>
         <div>
           <label>Restaurant Description</label>
@@ -95,6 +118,13 @@ function UpdateRestaurant(props) {
         <button type="submit" className="RestaurantPage-button">
           Submit Changes
         </button>
+      </form>
+      <form onSubmit={handleImage} className="RestaurantPage-form">
+        <div>
+          <label>Update Image</label>
+          <input type="file" name="image" onChange={handleImageInput} />
+          <button type="submit">Upload Image</button>
+        </div>
       </form>
       <button onClick={handleDelete}>Delete This Restaurant</button>
     </div>

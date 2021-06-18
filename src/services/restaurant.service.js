@@ -14,6 +14,18 @@ export function ADD_RESTAURANT(body, token) {
   });
 }
 
+export function UPDATE_IMAGE(body, token, restaurantId) {
+  return restaurantService.put(
+    `${PATHS.RESTAURANT}/${restaurantId}/image`,
+    body,
+    {
+      headers: {
+        authorization: token,
+      },
+    }
+  );
+}
+
 export function UPDATE_RESTAURANT(body, token, currentRestaurant) {
   return restaurantService.put(
     `${PATHS.RESTAURANT}/${currentRestaurant._id}`,

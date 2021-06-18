@@ -1,13 +1,10 @@
 import React from "react";
 import * as PROFILE_SERVICE from "../../services/profile.service.js";
 import * as CONSTS from "../../utils/consts";
-// import * as PATHS from "../../utils/paths";
-// import axios from "axios";
 
 function UpdateProfile(props) {
   const { user, history } = props;
   const { username } = user;
-  // const [newUserName, setNewUserName] = React.useState(username);
   const [userImage, setUserImage] = React.useState(user.userImage);
   const [form, setForm] = React.useState({
     username: username,

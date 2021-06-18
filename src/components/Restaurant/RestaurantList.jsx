@@ -3,9 +3,14 @@ import axios from "axios";
 import * as CONSTS from "../../utils/consts";
 import * as PATHS from "../../utils/paths";
 import { Link } from "react-router-dom";
+// import { OpenStreetMapProvider } from "leaflet-geosearch";
+import { MapContainer, TileLayer } from "react-leaflet";
+import RestaurantMarker from "./RestaurantMarker";
 
 function RestaurantList() {
   const [listOfRestaurants, setListOfRestaurants] = React.useState([]);
+
+  // const provider = new OpenStreetMapProvider();
 
   React.useEffect(() => {
     console.log("mounted");
@@ -29,9 +34,19 @@ function RestaurantList() {
             <Link to={`${PATHS.RESTAURANT}/${restaurant.restaurantName}`}>
               <h4>{restaurant.restaurantName}</h4>
             </Link>
+            <p></p>
           </section>
         );
       })}
+      <MapContainer center={[49.452, 11.076]} zoom={13} scrollWheelZoom={false}>
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        {listOfRestaurants.map((restaurant) => {
+          return <RestaurantMarker restaurant={restaurant} />;
+        })}
+      </MapContainer>
     </div>
   );
 }

@@ -50,6 +50,7 @@ function SingleRestaurantPage(props) {
     _id,
     meals,
     owner,
+    image,
   } = singleRestaurant;
 
   console.log(singleRestaurant);
@@ -77,6 +78,7 @@ function SingleRestaurantPage(props) {
   return (
     <div>
       <h2>{restaurantName}</h2>
+      <img src={image} alt={restaurantName} />
       <p>{description}</p>
       <p>
         <strong>Location: </strong>
@@ -111,15 +113,22 @@ function SingleRestaurantPage(props) {
           </div>
         );
       })}
-      {displayAddMeal ? <AddMeal restaurant={_id} user={user} /> : null}
+      {displayAddMeal ? (
+        <div>
+          <AddMeal restaurant={_id} user={user} />
+        </div>
+      ) : null}
       <br />
       {owner === user._id ? (
-        <button
-          onClick={editRestaurantToggle}
-          className="RestaurantPage-button"
-        >
-          {displayEditRestaurant ? <p>Hide</p> : <p>Edit Restaurant</p>}
-        </button>
+        <div>
+          <RestaurantPortal restaurant={singleRestaurant} />
+          <button
+            onClick={editRestaurantToggle}
+            className="RestaurantPage-button"
+          >
+            {displayEditRestaurant ? <p>Hide</p> : <p>Edit Restaurant</p>}
+          </button>
+        </div>
       ) : null}
       <br />
       {displayEditRestaurant ? (
@@ -130,7 +139,6 @@ function SingleRestaurantPage(props) {
         />
       ) : null}
       <Link to={PATHS.AVAILABLEPAGE}>Back to available meals</Link>
-      <RestaurantPortal restaurant={singleRestaurant} />
     </div>
   );
 }

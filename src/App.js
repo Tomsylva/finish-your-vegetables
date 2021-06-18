@@ -16,6 +16,9 @@ import * as CONSTS from "./utils/consts";
 import AvailablePage from "./pages/AvailablePage";
 import SingleRestaurantPage from "./pages/SingleRestaurantPage";
 import SingleMealPage from "./pages/SingleMealPage";
+// import { MapContainer } from "react-leaflet";
+// import { Icon } from "leaflet";
+import "./App.css";
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -63,6 +66,7 @@ export default function App() {
   return (
     <div className="App">
       <Navbar handleLogout={handleLogout} user={user} />
+      {/* <MapContainer></MapContainer> */}
       <Switch>
         <NormalRoute
           exact

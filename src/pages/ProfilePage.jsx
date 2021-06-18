@@ -1,6 +1,7 @@
 import React from "react";
-// import * as CONSTS from "../utils/consts";
+import axios from "axios";
 import * as PATHS from "../utils/paths";
+import * as CONSTS from "../utils/consts";
 import { Link } from "react-router-dom";
 import UpdateProfile from "../components/Profile/UpdateProfile";
 import AddRestaurant from "../components/Profile/AddRestaurant";
@@ -10,6 +11,19 @@ function ProfilePage(props) {
   const { username, userImage } = user;
   const [displayUpdateProfile, setDisplayUpdateProfile] = React.useState(false);
   const [displayAddRestaurant, setDisplayAddRestaurant] = React.useState(false);
+  const [populatedHistory, setPopulatedHistory] = React.useState(user);
+
+  React.useEffect(() => {
+    axios
+      .get(`${CONSTS.SERVER_URL}${PATHS.PROFILEPAGE}/${user._id}/populate`)
+      .then((response) => {
+        setPopulatedHistory(response.data.foundUser);
+        console.log("POPULATED", populatedHistory);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
 
   function profileToggle() {
     setDisplayUpdateProfile(!displayUpdateProfile);
@@ -23,11 +37,20 @@ function ProfilePage(props) {
     <div>
       <h1>{username}'s Profile</h1>
       <img src={userImage} alt={username} />
-      <h3>Order History</h3>
-      {user.history.map((order) => {
+      <h3>Reserved Meals</h3>
+      {populatedHistory.history.map((order) => {
         return (
           <div key={order}>
-            <p>{order}</p>
+            <p>{order.mealName}</p>
+          </div>
+        );
+      })}
+
+      <h3>Completed Orders</h3>
+      {populatedHistory.completedHistory.map((completedOrder) => {
+        return (
+          <div key={completedOrder}>
+            <p>{completedOrder.mealName}</p>
           </div>
         );
       })}
