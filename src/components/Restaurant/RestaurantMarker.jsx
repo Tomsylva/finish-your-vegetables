@@ -17,6 +17,7 @@ function RestaurantMarker(props) {
       setY(response[0].y);
     });
     return () => console.log("unmounted");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

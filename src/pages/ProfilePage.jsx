@@ -18,11 +18,11 @@ function ProfilePage(props) {
       .get(`${CONSTS.SERVER_URL}${PATHS.PROFILEPAGE}/${user._id}/populate`)
       .then((response) => {
         setPopulatedHistory(response.data.foundUser);
-        console.log("POPULATED", populatedHistory);
       })
       .catch((err) => {
         console.error(err);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function profileToggle() {

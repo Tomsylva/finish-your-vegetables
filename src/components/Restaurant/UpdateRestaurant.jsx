@@ -7,6 +7,7 @@ function UpdateRestaurant(props) {
   const [restaurantImage, setRestaurantImage] = React.useState(
     currentRestaurant.image
   );
+  const [errorMessage, setErrorMessage] = React.useState("");
 
   const { restaurantName, description, otherInfo, location } =
     currentRestaurant;
@@ -45,7 +46,8 @@ function UpdateRestaurant(props) {
   function handleImage(event) {
     event.preventDefault();
     if (!restaurantImage) {
-      //MESSAGE HERE/ERROR STATE
+      setErrorMessage("Please input a valid image");
+      return;
     }
     const formBody = new FormData();
     formBody.append("image", restaurantImage);
@@ -121,6 +123,7 @@ function UpdateRestaurant(props) {
       </form>
       <form onSubmit={handleImage} className="RestaurantPage-form">
         <div>
+          {errorMessage ? <p>{errorMessage}</p> : null}
           <label>Update Image</label>
           <input type="file" name="image" onChange={handleImageInput} />
           <button type="submit">Upload Image</button>
