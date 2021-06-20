@@ -60,22 +60,28 @@ function UpdateProfile(props) {
     <div>
       <form className="ProfilePage-form" onSubmit={handleSubmit}>
         <div>
-          <label>Username</label>
+          <label>User Name</label>
           <br />
           <input
             name="username"
             value={form.username}
             onChange={handleChange}
+            className="standardInput"
           ></input>
           <br />
-          <input type="file" onChange={handleImageInput} />
+          <label>Profile Picture</label>
+          <div class="file-input">
+            <input type="file" onChange={handleImageInput} />
+          </div>
         </div>
-        <button type="submit" className="ProfilePage-button">
+        <button type="submit" className="ProfilePage-button standardButton">
           Submit Changes
         </button>
       </form>
 
-      <button onClick={handleDelete}>Delete Profile</button>
+      <button onClick={handleDelete} className="standardButtonDelete">
+        Delete Profile
+      </button>
     </div>
   );
 }

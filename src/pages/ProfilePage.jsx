@@ -2,9 +2,9 @@ import React from "react";
 import axios from "axios";
 import * as PATHS from "../utils/paths";
 import * as CONSTS from "../utils/consts";
-import { Link } from "react-router-dom";
 import UpdateProfile from "../components/Profile/UpdateProfile";
 import AddRestaurant from "../components/Profile/AddRestaurant";
+import "./ProfilePage.css";
 
 function ProfilePage(props) {
   const { user, authenticate, history } = props;
@@ -34,29 +34,42 @@ function ProfilePage(props) {
   }
 
   return (
-    <div>
-      <h1>{username}'s Profile</h1>
-      <img src={userImage} alt={username} />
+    <div className="Profile-page">
+      <h1 className="Profile-username">{username}'s Profile</h1>
+      {/* <img src={userImage} alt={username} className="Profile-image" /> */}
+      <div
+        className="Profile-image-div"
+        style={{ backgroundImage: "url(" + userImage + ")" }}
+      ></div>
       <h3>Reserved Meals</h3>
-      {populatedHistory.history.map((order) => {
-        return (
-          <div key={order}>
-            <p>{order.mealName}</p>
-          </div>
-        );
-      })}
+
+      {populatedHistory.history.length ? (
+        populatedHistory.history.map((order) => {
+          return (
+            <div key={order}>
+              <p>{order.mealName}</p>
+            </div>
+          );
+        })
+      ) : (
+        <p>You currently have no reserved meals</p>
+      )}
 
       <h3>Completed Orders</h3>
-      {populatedHistory.completedHistory.map((completedOrder) => {
-        return (
-          <div key={completedOrder}>
-            <p>{completedOrder.mealName}</p>
-          </div>
-        );
-      })}
+      {populatedHistory.completedHistory.length ? (
+        populatedHistory.completedHistory.map((completedOrder) => {
+          return (
+            <div key={completedOrder}>
+              <p>{completedOrder.mealName}</p>
+            </div>
+          );
+        })
+      ) : (
+        <p>You have not yet completed any orders</p>
+      )}
 
-      <button onClick={profileToggle} className="ProfilePage-button">
-        {displayUpdateProfile ? <p>Hide</p> : <p>Update Profile</p>}
+      <button onClick={profileToggle} className="standardButton">
+        {displayUpdateProfile ? <>Hide</> : <>Update Profile</>}
       </button>
       <br />
       {displayUpdateProfile ? (
@@ -66,8 +79,11 @@ function ProfilePage(props) {
           history={history}
         />
       ) : null}
-      <button onClick={addRestaurantToggle} className="ProfilePage-button">
-        {displayAddRestaurant ? <p>Hide</p> : <p>Add Your Restaurant</p>}
+      <br />
+      <br />
+      <p>Do you run a restaurant and want to sell your leftover food?</p>
+      <button onClick={addRestaurantToggle} className="standardButton">
+        {displayAddRestaurant ? <>Hide</> : <>Add Your Restaurant</>}
       </button>
       <br />
       {displayAddRestaurant ? (
@@ -77,7 +93,6 @@ function ProfilePage(props) {
           history={history}
         />
       ) : null}
-      <Link to={PATHS.AVAILABLEPAGE}>Back to available meals</Link>
     </div>
   );
 }

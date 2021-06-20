@@ -1,0 +1,48 @@
+.About-page {
+  width: 65vw;
+}
+
+.About-content {
+  padding-top: 150px;
+  margin-bottom: 70px;
+}
+
+.About-content p {
+  padding: 1rem;
+  color: rgb(53, 53, 53);
+  text-align: justify;
+}
+
+.About-content h1 {
+  color: #1f063d;
+  padding: 1.5rem;
+}
+
+.About-white {
+  background: white;
+  border-radius: 5px;
+}
+
+.color-orange {
+  color: #eb941a;
+}
+
+.color-purple {
+  color: #3a0b72;
+}
+
+.color-green {
+  color: #089e32;
+}
+
+@media screen and (max-width: 600px) {
+  .About-page {
+    width: 90vw;
+  }
+  .About-content {
+    padding-top: 100px;
+  }
+  .About-content h1 {
+    font-size: 1.5rem;
+  }
+}

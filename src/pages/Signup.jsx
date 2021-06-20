@@ -3,6 +3,7 @@ import { signup } from "../services/auth";
 import "./auth.css";
 import * as CONSTS from "../utils/consts";
 import * as PATHS from "../utils/paths";
+import "./Signup.css";
 
 export default function Signup({ authenticate, history }) {
   const [form, setForm] = useState({
@@ -39,21 +40,24 @@ export default function Signup({ authenticate, history }) {
   }
 
   return (
-    <div>
-      <h1>Sign Up</h1>
+    <div className="Signup-page">
+      <h1 className="standardTitle">Sign Up</h1>
       <form onSubmit={handleFormSubmission} className="auth__form">
-        <label htmlFor="input-username">Username</label>
+        <label htmlFor="input-username">User Name</label>
+        <br />
         <input
           id="input-username"
           type="text"
           name="username"
-          placeholder="Text"
+          placeholder="User Name"
           value={username}
           onChange={handleInputChange}
           required
+          className="standardInput"
         />
-
+        <br />
         <label htmlFor="input-password">Password</label>
+        <br />
         <input
           id="input-password"
           type="password"
@@ -63,8 +67,9 @@ export default function Signup({ authenticate, history }) {
           onChange={handleInputChange}
           required
           minLength="8"
+          className="standardInput"
         />
-
+        <br />
         {error && (
           <div className="error-block">
             <p>There was an error submiting the form:</p>
@@ -72,7 +77,7 @@ export default function Signup({ authenticate, history }) {
           </div>
         )}
 
-        <button className="button__submit" type="submit">
+        <button className="button__submit standardButton" type="submit">
           Submit
         </button>
       </form>

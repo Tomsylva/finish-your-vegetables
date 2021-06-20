@@ -3,14 +3,11 @@ import axios from "axios";
 import * as CONSTS from "../../utils/consts";
 import * as PATHS from "../../utils/paths";
 import { Link } from "react-router-dom";
-// import { OpenStreetMapProvider } from "leaflet-geosearch";
 import { MapContainer, TileLayer } from "react-leaflet";
 import RestaurantMarker from "./RestaurantMarker";
 
 function RestaurantList() {
   const [listOfRestaurants, setListOfRestaurants] = React.useState([]);
-
-  // const provider = new OpenStreetMapProvider();
 
   React.useEffect(() => {
     console.log("mounted");

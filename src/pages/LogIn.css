@@ -1,0 +1,16 @@
+.Login-page {
+  background-color: #1d1d1d;
+  /* display: flex;
+  flex-direction: column; */
+  height: 100vh;
+  width: 100vw;
+}
+
+.signup__form {
+  padding: 2rem;
+  margin: 0 2rem;
+}
+
+.Login-input-label {
+  margin: 2rem;
+}

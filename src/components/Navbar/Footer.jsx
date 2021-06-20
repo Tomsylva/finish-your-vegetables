@@ -2,16 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import * as PATHS from "../../utils/paths";
-// import * as CONSTS from "../../utils/consts";
 
-const Navbar = (props) => {
+function Footer(props) {
   return (
-    <nav>
-      <Link to={PATHS.HOMEPAGE} className="nav__projectName authLink">
-        Finish Your Damn Vegetables
-      </Link>
-
-      <div className="nav__authLinks">
+    <footer>
+      <div className="footer__authLinks">
         {props.user ? (
           <>
             <Link to={PATHS.AVAILABLEPAGE} className="authLink">
@@ -21,7 +16,7 @@ const Navbar = (props) => {
             <Link to={PATHS.PROFILEPAGE} className="authLink">
               Profile
             </Link>
-            <button className="nav-logoutbtn" onClick={props.handleLogout}>
+            <button className="footer-logoutbtn" onClick={props.handleLogout}>
               Log Out
             </button>
           </>
@@ -30,14 +25,15 @@ const Navbar = (props) => {
             <Link to={PATHS.SIGNUPPAGE} className="authLink">
               Sign Up
             </Link>
+            <p className="nav-breaker"> | </p>
             <Link to={PATHS.LOGINPAGE} className="authLink">
               Log In
             </Link>
           </>
         )}
       </div>
-    </nav>
+    </footer>
   );
-};
+}
 
-export default Navbar;
+export default Footer;

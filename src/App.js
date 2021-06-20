@@ -6,7 +6,6 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ProfilePage from "./pages/ProfilePage";
 import LogIn from "./pages/LogIn";
-// import ProtectedPage from "./pages/ProtectedPage";
 import Signup from "./pages/Signup";
 import NormalRoute from "./routing-components/NormalRoute";
 import ProtectedRoute from "./routing-components/ProtectedRoute";
@@ -16,8 +15,7 @@ import * as CONSTS from "./utils/consts";
 import AvailablePage from "./pages/AvailablePage";
 import SingleRestaurantPage from "./pages/SingleRestaurantPage";
 import SingleMealPage from "./pages/SingleMealPage";
-// import { MapContainer } from "react-leaflet";
-// import { Icon } from "leaflet";
+import Footer from "./components/Navbar/Footer";
 import "./App.css";
 
 export default function App() {
@@ -66,7 +64,6 @@ export default function App() {
   return (
     <div className="App">
       <Navbar handleLogout={handleLogout} user={user} />
-      {/* <MapContainer></MapContainer> */}
       <Switch>
         <NormalRoute
           exact
@@ -113,6 +110,7 @@ export default function App() {
           component={SingleMealPage}
         />
       </Switch>
+      <Footer handleLogout={handleLogout} user={user} />
     </div>
   );
 }

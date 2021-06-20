@@ -1,5 +1,18 @@
+* {
+  margin: auto;
+  padding: 0;
+}
+
+body {
+  background: #1d1d1d;
+  padding-bottom: 50px;
+}
+
 .App {
   text-align: center;
+  width: 100vw;
+  background: #1d1d1d;
+  color: white;
 }
 
 .App-header {
@@ -16,4 +29,51 @@
 .leaflet-container {
   width: 80%;
   height: 80vh;
+}
+
+.standardInput {
+  text-align: center;
+  padding: 10px 60px;
+  border-radius: 3px;
+  border: none;
+  transition: all 1s;
+  background-color: rgb(224, 224, 224);
+}
+
+.standardInput:focus {
+  transform: scale(1.05);
+  transition: 0.2s ease-in-out;
+  border: 2px solid #eb941a;
+  outline: none;
+}
+
+.standardButton,
+.standardButtonDelete {
+  padding: 0.5em 1em;
+  margin-left: 1em;
+  background-color: 224, 224, 224;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  color: #1f063d;
+  transition: all 0.2s ease-in-out;
+  position: sticky;
+  top: 0;
+  font-size: 1.2rem;
+  margin: 1rem;
+}
+
+.standardButtonDelete:hover {
+  transform: scale(1.05);
+  background-color: rgb(170, 19, 19);
+  color: white;
+}
+
+.standardButton:hover {
+  transform: scale(1.05);
+  background-color: #089e32;
+}
+
+.standardTitle {
+  padding-top: 100px;
 }

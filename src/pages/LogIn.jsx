@@ -3,6 +3,7 @@ import { login } from "../services/auth";
 import "./Signup";
 import * as CONSTS from "../utils/consts";
 import * as PATHS from "../utils/paths";
+import "./LogIn.css";
 
 export default function LogIn({ authenticate, history }) {
   const [form, setForm] = useState({
@@ -36,40 +37,49 @@ export default function LogIn({ authenticate, history }) {
   }
 
   return (
-    <div>
-      <h1>Log In</h1>
+    <div className="Login-page">
+      <h1 className="standardTitle">Log In</h1>
       <form onSubmit={handleFormSubmission} className="signup__form">
-        <label htmlFor="input-username">Username</label>
-        <input
-          id="input-username"
-          type="text"
-          name="username"
-          placeholder="username"
-          value={username}
-          onChange={handleInputChange}
-          required
-        />
-
-        <label htmlFor="input-password">Password</label>
-        <input
-          id="input-password"
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={password}
-          onChange={handleInputChange}
-          required
-          minLength="8"
-        />
-
+        <div className="Login-input-div">
+          <label htmlFor="input-username">User Name</label>
+          <br />
+          <br />
+          <input
+            id="input-username"
+            type="text"
+            name="username"
+            placeholder="User Name"
+            value={username}
+            onChange={handleInputChange}
+            required
+            className="standardInput"
+          />
+        </div>
+        <br />
+        <div className="Login-input-div">
+          <label htmlFor="input-password">Password</label>
+          <br />
+          <br />
+          <input
+            id="input-password"
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={password}
+            onChange={handleInputChange}
+            required
+            minLength="8"
+            className="standardInput"
+          />
+        </div>
         {error && (
           <div className="error-block">
             <p>There was an error submiting the form:</p>
             <p>{error.message}</p>
           </div>
         )}
-
-        <button className="button__submit" type="submit">
+        <br />
+        <button className="button__submit standardButton" type="submit">
           Submit
         </button>
       </form>

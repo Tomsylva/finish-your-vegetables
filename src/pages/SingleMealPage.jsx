@@ -76,9 +76,7 @@ function SingleMealPage(props) {
       <h3>
         {mealName} : €{price}
       </h3>
-      <p>
-        <em>{mealType}</em>
-      </p>
+      <p>{mealType === "meat" ? <em>meat/fish</em> : <em>{mealType}</em>}</p>
       <p>{description}</p>
       <p>
         <strong>Other information: </strong>

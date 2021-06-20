@@ -1,0 +1,10 @@
+.Signup-page {
+  background-color: #1d1d1d;
+  height: 100vh;
+  width: 100vw;
+}
+
+.auth__form {
+  padding: 2rem;
+  margin: 0 2rem;
+}

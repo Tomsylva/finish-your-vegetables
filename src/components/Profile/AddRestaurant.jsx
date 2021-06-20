@@ -66,6 +66,7 @@ function AddRestaurant(props) {
             value={form.restaurantName}
             onChange={handleChange}
             required
+            className="standardInput"
           ></input>
         </div>
         <div>
@@ -76,6 +77,7 @@ function AddRestaurant(props) {
             value={form.description}
             onChange={handleChange}
             required
+            className="standardInput"
           ></input>
         </div>
         <div>
@@ -92,6 +94,7 @@ function AddRestaurant(props) {
             value={form.location}
             onChange={handleChange}
             required
+            className="standardInput"
           ></input>
         </div>
         <div>
@@ -101,6 +104,7 @@ function AddRestaurant(props) {
             name="otherInfo"
             value={form.otherInfo}
             onChange={handleChange}
+            className="standardInput"
           ></input>
         </div>
         <div>
@@ -111,9 +115,10 @@ function AddRestaurant(props) {
             value={form.contact}
             onChange={handleChange}
             required
+            className="standardInput"
           ></input>
         </div>
-        <button type="submit" className="ProfilePage-button">
+        <button type="submit" className="ProfilePage-button standardButton">
           Add Restaurant
         </button>
       </form>

@@ -1,6 +1,82 @@
-.regularLink {
-  color: #61dafb;
-  text-decoration: none;
-  transition: color 0.2s ease-in-out;
-  padding: 1rem;
+.Home {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.Home-image {
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://res.cloudinary.com/tom-j-sylva/image/upload/v1624105365/finish-your-vegetables/1_dv9hng.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.Home-content {
+  background: #19003881;
+  height: 30vh;
+  width: 80%;
+  margin: auto;
+  margin-top: 35vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.Home-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.Home-title {
+  font-size: 2.5rem;
+}
+
+.reduce-padding {
+  padding: 0;
+  margin: 1.5rem 0 0 0;
+}
+
+.Home-signup {
+  padding: 0 0 1.5rem 0;
+  margin: 0;
+}
+
+@media screen and (max-width: 700px) {
+  .Home-content {
+    height: 40vh;
+    margin-top: 35vh;
+  }
+
+  .Home-title {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .Home-content {
+    height: 30vh;
+    margin-top: 40vh;
+  }
+
+  .hide-on-small {
+    display: none;
+  }
+  .Home-links {
+    flex-direction: column;
+  }
+  .Home-links .authLink {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+  .Home-title {
+    display: none;
+  }
 }
