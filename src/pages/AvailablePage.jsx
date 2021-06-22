@@ -7,10 +7,10 @@ function AvailablePage(props) {
   const { user } = props;
 
   return (
-    <div>
+    <div className="Available-page">
       <h1>Steaming hot food, looking to fill a hole in your area!</h1>
-      <RestaurantList user={user} />
-      <MealList user={user} />
+      <RestaurantList className="RestaurantList-compomnent" user={user} />
+      <MealList className="MealList-component" user={user} />
     </div>
   );
 }

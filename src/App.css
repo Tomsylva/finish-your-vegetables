@@ -28,7 +28,9 @@ body {
 
 .leaflet-container {
   width: 80%;
-  height: 80vh;
+  height: 300px;
+  border: 1px solid white;
+  border-radius: 3px;
 }
 
 .standardInput {
@@ -76,4 +78,9 @@ body {
 
 .standardTitle {
   padding-top: 100px;
+}
+
+.Available-page h1 {
+  padding-top: 100px;
+  width: 90vw;
 }

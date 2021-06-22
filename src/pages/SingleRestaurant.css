@@ -1,0 +1,64 @@
+.Restaurant-page {
+  width: 100vw;
+}
+
+.Restaurant-cover {
+  z-index: -1;
+  height: 120px;
+  width: 100vw;
+  padding-top: 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  filter: drop-shadow(0 8px 10px #704c1a);
+  -webkit-filter: drop-shadow(0 8px 10px #704c1a);
+}
+
+#Restaurant-name {
+  margin-top: 82px;
+  padding: 1rem;
+  color: White;
+  background: rgba(0, 0, 0, 0.753);
+  border-radius: 10px;
+}
+
+.Restaurant-content {
+  padding-top: 50px;
+}
+
+.Restaurant-description {
+  padding: 10px 0 50px 0;
+}
+
+.Restaurant-sections {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.Restaurant-left,
+.Restaurant-right {
+  width: 40%;
+  padding: 1rem;
+  border-radius: 5px;
+  color: #1f063d;
+}
+
+.Restaurant-left {
+  background: #eb941a;
+}
+
+.Restaurant-right {
+  background: #089e32;
+}
+
+.Restaurant-left p {
+  padding: 0.5rem;
+}

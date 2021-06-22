@@ -21,7 +21,7 @@ function HomePage(props) {
             </Link>
             <p className="nav-breaker hide-on-small"> | </p>
             <Link to={PATHS.ABOUTPAGE} className="authLink">
-              What even is this?
+              What the hell is this?
             </Link>
           </div>
           <p className="reduce-padding hide-on-small">

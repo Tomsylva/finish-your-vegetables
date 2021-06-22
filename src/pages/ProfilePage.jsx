@@ -41,32 +41,42 @@ function ProfilePage(props) {
         className="Profile-image-div"
         style={{ backgroundImage: "url(" + userImage + ")" }}
       ></div>
-      <h3>Reserved Meals</h3>
 
-      {populatedHistory.history.length ? (
-        populatedHistory.history.map((order) => {
-          return (
-            <div key={order}>
-              <p>{order.mealName}</p>
-            </div>
-          );
-        })
-      ) : (
-        <p>You currently have no reserved meals</p>
-      )}
+      <div className="Profile-reserved-div">
+        <h3>Reserved Meals</h3>
 
-      <h3>Completed Orders</h3>
-      {populatedHistory.completedHistory.length ? (
-        populatedHistory.completedHistory.map((completedOrder) => {
-          return (
-            <div key={completedOrder}>
-              <p>{completedOrder.mealName}</p>
-            </div>
-          );
-        })
-      ) : (
-        <p>You have not yet completed any orders</p>
-      )}
+        {populatedHistory.history.length ? (
+          populatedHistory.history.map((order) => {
+            return (
+              <div key={order}>
+                <p>
+                  <strong>{order.mealName}</strong> : €{order.price}
+                </p>
+              </div>
+            );
+          })
+        ) : (
+          <p>You currently have no reserved meals</p>
+        )}
+      </div>
+
+      <div className="Profile-completed-div">
+        <h3>Completed Orders</h3>
+        {populatedHistory.completedHistory.length ? (
+          populatedHistory.completedHistory.map((completedOrder) => {
+            return (
+              <div key={completedOrder}>
+                <p>
+                  <strong>{completedOrder.mealName}</strong> : €
+                  {completedOrder.price}
+                </p>
+              </div>
+            );
+          })
+        ) : (
+          <p>You have not yet completed any orders</p>
+        )}
+      </div>
 
       <button onClick={profileToggle} className="standardButton">
         {displayUpdateProfile ? <>Hide</> : <>Update Profile</>}

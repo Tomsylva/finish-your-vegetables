@@ -5,6 +5,7 @@ import * as PATHS from "../../utils/paths";
 import { Link } from "react-router-dom";
 import { MapContainer, TileLayer } from "react-leaflet";
 import RestaurantMarker from "./RestaurantMarker";
+import "../../pages/AvailablePage.css";
 
 function RestaurantList() {
   const [listOfRestaurants, setListOfRestaurants] = React.useState([]);
@@ -23,7 +24,7 @@ function RestaurantList() {
   }, []);
 
   return (
-    <div>
+    <div className="Restaurant-list-div">
       <h3>Restaurants</h3>
       {listOfRestaurants.map((restaurant) => {
         return (
@@ -35,7 +36,12 @@ function RestaurantList() {
           </section>
         );
       })}
-      <MapContainer center={[49.452, 11.076]} zoom={13} scrollWheelZoom={false}>
+      <MapContainer
+        center={[49.452, 11.076]}
+        zoom={13}
+        scrollWheelZoom={false}
+        id="MapContainer"
+      >
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

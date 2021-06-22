@@ -8,6 +8,7 @@ import LoadingComponent from "../components/Loading";
 import UpdateRestaurant from "../components/Restaurant/UpdateRestaurant";
 import * as MEAL_SERVICE from "../services/meal.service";
 import RestaurantPortal from "../components/Restaurant/RestaurantPortal";
+import "./SingleRestaurant.css";
 
 function SingleRestaurantPage(props) {
   const { history, user } = props;
@@ -76,69 +77,83 @@ function SingleRestaurantPage(props) {
   }
 
   return (
-    <div>
-      <h2>{restaurantName}</h2>
-      <img src={image} alt={restaurantName} />
-      <p>{description}</p>
-      <p>
-        <strong>Location: </strong>
-        {location}
-      </p>
-      <p>
-        <strong>Contact: </strong>
-        {contact}
-      </p>
-      <p>
-        <strong>Other Information: </strong>
-        {otherInfo}
-      </p>
-      <h3>Available Food</h3>
-      {meals.map((meal) => {
-        return (
-          <div key={meal._id}>
-            <Link
-              to={`${PATHS.SINGLEMEAL}/${meal._id}`}
-              owner={owner}
-              user={user}
-            >
-              {meal.mealName}
-            </Link>
-            {meal.reserved ? <p>RESERVED</p> : null}
-            <br />
-            {owner === user._id ? (
-              <button onClick={(e) => handleDelete(e, meal._id)}>
-                Delete {meal.name}
-              </button>
-            ) : null}
+    <div className="Restaurant-page">
+      <div
+        className="Restaurant-cover"
+        style={{
+          backgroundImage: `url(${image})`,
+        }}
+      >
+        <h1 id="Restaurant-name">{restaurantName}</h1>
+      </div>
+      <div className="Restaurant-content">
+        <p className="Restaurant-description">{description}</p>
+        <div className="Restaurant-sections">
+          <div className="Restaurant-left">
+            <p>
+              <strong>Location: </strong>
+              {location}
+            </p>
+            <p>
+              <strong>Contact: </strong>
+              {contact}
+            </p>
+            <p>
+              <strong></strong>
+              {otherInfo}
+            </p>
           </div>
-        );
-      })}
-      {displayAddMeal ? (
-        <div>
-          <AddMeal restaurant={_id} user={user} />
+          <div className="Restaurant-right">
+            <h3>Available Food</h3>
+            {meals.map((meal) => {
+              return (
+                <div key={meal._id}>
+                  <Link
+                    to={`${PATHS.SINGLEMEAL}/${meal._id}`}
+                    owner={owner}
+                    user={user}
+                  >
+                    {meal.mealName}
+                  </Link>
+                  {meal.reserved ? <p>RESERVED</p> : null}
+                  <br />
+                  {owner === user._id ? (
+                    <button onClick={(e) => handleDelete(e, meal._id)}>
+                      Delete {meal.name}
+                    </button>
+                  ) : null}
+                </div>
+              );
+            })}
+          </div>
         </div>
-      ) : null}
-      <br />
-      {owner === user._id ? (
-        <div>
-          <RestaurantPortal restaurant={singleRestaurant} />
-          <button
-            onClick={editRestaurantToggle}
-            className="RestaurantPage-button"
-          >
-            {displayEditRestaurant ? <p>Hide</p> : <p>Edit Restaurant</p>}
-          </button>
-        </div>
-      ) : null}
-      <br />
-      {displayEditRestaurant ? (
-        <UpdateRestaurant
-          currentRestaurant={singleRestaurant}
-          user={user}
-          history={history}
-        />
-      ) : null}
-      <Link to={PATHS.AVAILABLEPAGE}>Back to available meals</Link>
+        {displayAddMeal ? (
+          <div>
+            <AddMeal restaurant={_id} user={user} />
+          </div>
+        ) : null}
+        <br />
+        {owner === user._id ? (
+          <div>
+            <RestaurantPortal restaurant={singleRestaurant} />
+            <button
+              onClick={editRestaurantToggle}
+              className="RestaurantPage-button"
+            >
+              {displayEditRestaurant ? <p>Hide</p> : <p>Edit Restaurant</p>}
+            </button>
+          </div>
+        ) : null}
+        <br />
+        {displayEditRestaurant ? (
+          <UpdateRestaurant
+            currentRestaurant={singleRestaurant}
+            user={user}
+            history={history}
+          />
+        ) : null}
+        <Link to={PATHS.AVAILABLEPAGE}>Back to available meals</Link>
+      </div>
     </div>
   );
 }
