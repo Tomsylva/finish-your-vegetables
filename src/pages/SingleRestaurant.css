@@ -41,6 +41,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin: 0 1rem;
 }
 
 .Restaurant-left,
@@ -53,6 +54,7 @@
 
 .Restaurant-left {
   background: #eb941a;
+  padding: 3rem 1rem;
 }
 
 .Restaurant-right {
@@ -64,15 +66,31 @@
 }
 
 .Addmeal-div {
-  background: rgb(63, 63, 63);
   border-radius: 5px;
-  margin: 1rem;
+  margin: auto;
   padding: 1rem;
-  width: 40%;
+}
+
+.Addmeal-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .Addmeal-input {
   padding: 0.5rem;
+  width: 40vw;
+}
+
+#meal-type {
+  width: 80vw;
+  padding-top: 1rem;;
+}
+
+select {
+  padding: 1rem 2rem;
+  margin: 0.5rem;
 }
 
 .Restaurant-portal {
@@ -93,16 +111,66 @@
 }
 
 .available-green {
-  color: #02641e;
+  color: #018125;
 }
 
 .reserved-orange {
-  color: rgb(139, 0, 0)
+  color: rgb(163, 2, 2)
 }
 
-.portal-reserved-meal, .portal-completed-meal {
+.portal-reserved-meal, .portal-completed-meal, .Restaurant-active-meal {
   background: rgba(0, 0, 0, 0.164);
   border-radius: 3px;
   padding: 0.5rem;
   margin: 0.5rem;
+}
+
+.collection-div {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.UpdateRestaurant-page {
+  background-color: rgb(70, 70, 70);
+  margin: 1rem;
+  padding: 1rem;
+  border-radius:5px ;
+}
+
+.UpdateRestaurant-page div {
+  padding: 0.7rem;
+}
+
+@media screen and (max-width: 450px){
+  .Restaurant-sections, .portal-sections {
+    flex-direction: column;
+  }
+  .Restaurant-left,
+.Restaurant-right, .portal-left, .portal-right, .Addmeal-input {
+  width: 90%;
+  margin-top: 0.5rem;
+}
+.restaurant-left {
+  padding: 0 1rem;
+}
+.portal-reserved-meal .Profile-image-div{
+  height:200px;
+  width:200px;
+}
+}
+
+@media screen and (max-width: 750px){
+  .portal-reserved-meal .Profile-image-div{
+    height:150px;
+    width:150px;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .portal-reserved-meal .Profile-image-div{
+    height:100px;
+    width:100px;
+  }
 }

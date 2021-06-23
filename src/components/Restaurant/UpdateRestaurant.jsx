@@ -81,43 +81,50 @@ function UpdateRestaurant(props) {
   }
 
   return (
-    <div>
+    <div className="UpdateRestaurant-page">
       <form className="RestaurantPage-form" onSubmit={handleSubmit}>
         <div>
-          <label>Edit {restaurantName}</label>
+          <h3>Edit {restaurantName}</h3>
           <br />
         </div>
         <div>
           <label>Restaurant Description</label>
+          <br />
           <br />
           <input
             name="description"
             value={form.description}
             onChange={handleChange}
             type="text"
+            className="standardInput"
           />
         </div>
         <div>
           <label>Other Information/Covid Protection</label>
+          <br />
           <br />
           <input
             name="otherInfo"
             value={form.otherInfo}
             onChange={handleChange}
             type="text"
+            className="standardInput"
           />
         </div>
         <div>
           <label>Restaurant Location</label>
+          <br />
           <br />
           <input
             name="location"
             value={form.location}
             onChange={handleChange}
             type="text"
+            className="standardInput"
           />
         </div>
-        <button type="submit" className="RestaurantPage-button">
+        <br />
+        <button type="submit" className="standardButton">
           Submit Changes
         </button>
       </form>
@@ -126,10 +133,10 @@ function UpdateRestaurant(props) {
           {errorMessage ? <p>{errorMessage}</p> : null}
           <label>Update Image</label>
           <input type="file" name="image" onChange={handleImageInput} />
-          <button type="submit">Upload Image</button>
+          <button type="submit" className="standardButton">Upload Image</button>
         </div>
       </form>
-      <button onClick={handleDelete}>Delete This Restaurant</button>
+      <button onClick={handleDelete} className="standardButtonDelete">Delete This Restaurant</button>
     </div>
   );
 }

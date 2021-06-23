@@ -42,7 +42,7 @@ body {
   background-color: rgb(224, 224, 224);
 }
 
-.standardInput:focus {
+.standardInput:focus, select:focus {
   transform: scale(1.05);
   transition: 0.2s ease-in-out;
   border: 2px solid #eb941a;
@@ -98,4 +98,16 @@ body {
 .Available-page h1 {
   padding-top: 100px;
   width: 90vw;
+}
+
+.standardLink {
+  color: #1f063d;
+  padding: 0.3rem;
+  border-radius: 3px;
+  transition: all 0.2s ease-in-out;
+}
+
+.standardLink:hover {
+  transform: scale(1.05);
+  color:white;
 }

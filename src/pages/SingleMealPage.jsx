@@ -2,9 +2,8 @@ import axios from "axios";
 import React from "react";
 import * as CONSTS from "../utils/consts";
 import * as PATHS from "../utils/paths";
-import { Link } from "react-router-dom";
 import * as MEAL_SERVICE from "../services/meal.service";
-// import EditMeal from "../components/Meal/EditMeal";
+import "./SingleMeal.css";
 
 function SingleMealPage(props) {
   const [singleMeal, setSingleMeal] = React.useState({});
@@ -72,7 +71,7 @@ function SingleMealPage(props) {
   }
 
   return (
-    <div>
+    <div className="SingleMeal-page">
       <h3>
         {mealName} : €{price}
       </h3>
@@ -84,31 +83,24 @@ function SingleMealPage(props) {
       </p>
       <br />
       {!mealIsReserved ? (
-        <button onClick={toggleIsReserved}>Reserve This Meal</button>
+        <div>
+        <p><strong className="available-green">AVAILABLE</strong></p>
+        <button onClick={toggleIsReserved} className="standardButton">Reserve This Meal</button>
+        </div>
       ) : (
         <div>
-          <h3>RESERVED</h3>
+          <h3 className="reserved-orange">RESERVED</h3>
           <p>
             <strong>Reserved by: </strong>
             {isReservedBy}
             <br />
             {userOwnsMeal ? (
-              <button onClick={toggleUnreserve}>Release Food</button>
+              <button onClick={toggleUnreserve} className="standardButtonDelete">Release Food</button>
             ) : null}
           </p>
         </div>
       )}
       <br />
-      {/* {owner == user._id ? (
-        <EditMeal
-          // currentRestaurant={currentRestaurant}
-          user={user}
-          singleMeal={singleMeal}
-          owner={owner}
-        />
-      ) : null} */}
-
-      <Link to={PATHS.AVAILABLEPAGE}>Back to available meals</Link>
     </div>
   );
 }

@@ -1,8 +1,16 @@
 import { Link } from "react-router-dom";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
 import { Marker, Popup } from "react-leaflet";
+import {Icon} from "leaflet"
 import * as PATHS from "../../utils/paths";
 import React from "react";
+
+const carrot = new Icon(
+  {
+    iconUrl: "../1.png",
+    iconSize: [25, 40]
+  }
+)
 
 function RestaurantMarker(props) {
   const provider = new OpenStreetMapProvider();
@@ -21,7 +29,7 @@ function RestaurantMarker(props) {
   }, []);
 
   return (
-    <Marker position={[y, x]}>
+    <Marker position={[y, x]} icon={carrot}>
       <Popup>
         <Link to={`${PATHS.RESTAURANT}/${restaurant.restaurantName}`}>
           <p>

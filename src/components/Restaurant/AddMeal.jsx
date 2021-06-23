@@ -48,7 +48,7 @@ function AddMeal(props) {
   return (
     <div className="Addmeal-div">
       <h3>Add a meal</h3>
-      <form className="RestaurantPage-form" onSubmit={handleSubmit}>
+      <form className="Addmeal-form" onSubmit={handleSubmit}>
         <div className="Addmeal-input">
           <label>Name of meal</label>
           <br />
@@ -81,15 +81,6 @@ function AddMeal(props) {
           ></input>
         </div>
         <div className="Addmeal-input">
-          <label>Meal Type (please select)</label>
-          <br />
-          <select name="mealType" value={form.mealType} onChange={handleChange}>
-            <option value="meat">Meat</option>
-            <option value="vegan">Vegan</option>
-            <option value="vegetarian">Vegetarian</option>
-          </select>
-        </div>
-        <div className="Addmeal-input">
           <label>Price</label>
           <br />
           <input
@@ -100,6 +91,15 @@ function AddMeal(props) {
             onChange={handleChange}
             required
           ></input>
+        </div>
+        <div className="Addmeal-input" id="meal-type">
+          <label>Meal Type (please select)</label>
+          <br />
+          <select name="mealType" value={form.mealType} onChange={handleChange}>
+            <option value="meat">Meat</option>
+            <option value="vegan">Vegan</option>
+            <option value="vegetarian">Vegetarian</option>
+          </select>
         </div>
         <br />
         <button

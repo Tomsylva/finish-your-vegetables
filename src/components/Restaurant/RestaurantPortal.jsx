@@ -1,21 +1,28 @@
 import React from "react";
 import CompletedMeal from "./CompletedMeal";
 import ReservedMeal from "./ReservedMeal";
+import AddMeal from "./AddMeal";
 import "../../pages/SingleRestaurant.css";
 
 function RestaurantPortal(props) {
-  const { restaurant } = props;
+  const { restaurant, user } = props;
+  const {_id} = restaurant;
   const { meals } = restaurant;
   const [activeRestaurant, setActiveRestaurant] = React.useState(restaurant);
   const [activeMealList, setActiveMealList] = React.useState(meals);
   const [activeCompletedList, setActiveCompletedList] = React.useState(
     activeRestaurant.completedOrders
   );
+  const [displayAddMeal, setDisplayAddMeal] = React.useState(false);
 
   function handleUpdateCompleted(completedOrders) {
     setActiveCompletedList(completedOrders);
     window.location.reload();
     //UPDATE STATE TO RERENDER?????
+  }
+
+  function addRestaurantToggle(){
+    setDisplayAddMeal(!displayAddMeal)
   }
 
   return (
@@ -48,7 +55,9 @@ function RestaurantPortal(props) {
         );
       })}
       </div>
+      <button onClick={addRestaurantToggle} className="standardButton">{displayAddMeal ? <>Hide</> : <>Add a Meal</>}</button>
       </div>
+            {displayAddMeal ? <AddMeal restaurant={_id} user={user} /> : null}
     </div>
   );
 }

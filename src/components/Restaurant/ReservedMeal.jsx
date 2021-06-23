@@ -11,6 +11,9 @@ function ReservedMeal(props) {
     handleUpdateCompleted,
   } = props;
 
+  const {_id} = meal;
+  console.log("MEAL ID", meal._id)
+
   const [showCollect, setShowCollect] = React.useState(false);
   const [userCollect, setUserCollect] = React.useState({});
 
@@ -68,6 +71,21 @@ function ReservedMeal(props) {
     });
   }
 
+  function handleDelete(event, mealId) {
+    event.preventDefault();
+    const accessToken = localStorage.getItem(CONSTS.ACCESS_TOKEN);
+    MEAL_SERVICE.DELETE_MEAL(accessToken, mealId, activeRestaurant._id)
+      .then((response) => {
+        if (response.data.success) {
+          window.location.reload();
+          //UPDATE STATE
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
   return (
     <div className="portal-reserved-meal">
       <h4>
@@ -77,7 +95,7 @@ function ReservedMeal(props) {
         <div>
           <p className="reserved-orange">RESERVED</p>
           {showCollect ? (
-            <div>
+            <div className="collection-div">
             <button onClick={(e) => hideCollect(e)} className="standardButtonSmall">Hide info</button>
               <p>
                 <strong>Reserved by: </strong>
@@ -102,6 +120,12 @@ function ReservedMeal(props) {
       ) : (
         <p className="available-green">AVAILABLE</p>
       )}
+      <button
+onClick={(e) => handleDelete(e, meal._id)}
+className="standardButtonSmallDelete"
+>
+Delete
+</button>
     </div>
   );
 }

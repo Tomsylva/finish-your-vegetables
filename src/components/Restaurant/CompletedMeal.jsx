@@ -30,7 +30,7 @@ function CompletedMeal(props) {
             {customerInfo.username}
           </p>
           <button onClick={(e) => hideInfo(e)} className="standardButtonSmall">
-            Hide Customer Information
+            Hide
           </button>
         </div>
       ) : (
