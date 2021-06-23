@@ -127,15 +127,20 @@ function UpdateRestaurant(props) {
         <button type="submit" className="standardButton">
           Submit Changes
         </button>
+        <p style={{fontSize: "3rem"}}><strong><span className="color-purple">.</span>
+            <span className="color-orange">.</span>
+            <span className="color-green">.</span></strong></p>
       </form>
       <form onSubmit={handleImage} className="RestaurantPage-form">
         <div>
           {errorMessage ? <p>{errorMessage}</p> : null}
-          <label>Update Image</label>
           <input type="file" name="image" onChange={handleImageInput} />
           <button type="submit" className="standardButton">Upload Image</button>
         </div>
       </form>
+      <p style={{fontSize: "3rem"}}><strong><span className="color-purple">.</span>
+            <span className="color-orange">.</span>
+            <span className="color-green">.</span></strong></p>
       <button onClick={handleDelete} className="standardButtonDelete">Delete This Restaurant</button>
     </div>
   );
