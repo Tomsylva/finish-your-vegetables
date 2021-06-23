@@ -59,7 +59,7 @@ function UpdateProfile(props) {
   return (
     <div>
       <form className="ProfilePage-form" onSubmit={handleSubmit}>
-        <div>
+        <div className="update-profile-div">
           <label>User Name</label>
           <br />
           <input
@@ -68,6 +68,7 @@ function UpdateProfile(props) {
             onChange={handleChange}
             className="standardInput"
           ></input>
+          <br />
           <br />
           <label>Profile Picture</label>
           <div class="file-input">

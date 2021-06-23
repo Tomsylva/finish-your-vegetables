@@ -55,11 +55,6 @@
 }
 
 @media screen and (max-width: 700px) {
-  .Home-content {
-    height: 40vh;
-    margin-top: 35vh;
-  }
-
   .Home-title {
     font-size: 2rem;
   }

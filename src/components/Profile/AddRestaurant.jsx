@@ -56,7 +56,6 @@ function AddRestaurant(props) {
   return (
     <div>
       {errorMessage ? <p>{errorMessage}</p> : null}
-      <p>Please fill in all the fields below</p>
       <form className="ProfilePage-form" onSubmit={handleSubmit}>
         <div>
           <label>Restaurant Name</label>
@@ -81,13 +80,7 @@ function AddRestaurant(props) {
           ></input>
         </div>
         <div>
-          <label>Restaurant Location</label>
-          <br />
-          <p>Please use the following format:</p>
-          <p>Street name & number, Nürnberg, Postcode</p>
-          <p>
-            <strong>eg.</strong> Paumgartnerstraße 20, Nürnberg, 90429
-          </p>
+          <label>Restaurant Location *</label>
           <br />
           <input
             name="location"
@@ -118,6 +111,12 @@ function AddRestaurant(props) {
             className="standardInput"
           ></input>
         </div>
+        <div style={{width: "90%"}}><p>* Please use the following format:</p>
+          <p>Street name & number, Nürnberg, Postcode</p>
+          <p>
+            <strong>eg.</strong> Paumgartnerstraße 20, Nürnberg, 90429
+          </p>
+          </div>
         <button type="submit" className="ProfilePage-button standardButton">
           Add Restaurant
         </button>

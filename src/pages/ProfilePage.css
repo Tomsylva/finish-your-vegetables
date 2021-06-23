@@ -74,3 +74,18 @@ input[type="file"]::file-selector-button:hover {
   border: 3px solid #eb941a;
   transition: 0.2s all ease-in-out;
 }
+
+.ProfilePage-form {
+  background-color: rgb(54, 54, 54);
+  padding: 1rem;
+  border-radius: 5px;
+  margin: 0 1rem;
+}
+
+.ProfilePage-form div {
+  margin: 0.5rem;
+}
+
+.ProfilePage-form input{
+  margin:0.5rem;
+}
