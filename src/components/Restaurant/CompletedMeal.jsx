@@ -21,21 +21,21 @@ function CompletedMeal(props) {
   }
 
   return (
-    <div>
-      <h3>{completedMeal.mealName}</h3>
+    <div className="portal-completed-meal">
+      <h4>{completedMeal.mealName}</h4>
       {showCustomerInfo ? (
         <div>
           <p>
             <strong>Collected by: </strong>
             {customerInfo.username}
           </p>
-          <button onClick={(e) => hideInfo(e)}>
+          <button onClick={(e) => hideInfo(e)} className="standardButtonSmall">
             Hide Customer Information
           </button>
         </div>
       ) : (
-        <button onClick={(e) => showInfo(e, completedMeal.reservedBy)}>
-          Show Order Information
+        <button onClick={(e) => showInfo(e, completedMeal.reservedBy)} className="standardButtonSmall">
+          Order Information
         </button>
       )}
     </div>

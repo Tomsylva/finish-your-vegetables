@@ -1,6 +1,7 @@
 import React from "react";
 import CompletedMeal from "./CompletedMeal";
 import ReservedMeal from "./ReservedMeal";
+import "../../pages/SingleRestaurant.css";
 
 function RestaurantPortal(props) {
   const { restaurant } = props;
@@ -18,9 +19,11 @@ function RestaurantPortal(props) {
   }
 
   return (
-    <div>
-      <h1>RESTAURANT PORTAL</h1>
-      <h2>Active Meals</h2>
+    <div className="Restaurant-portal">
+      <h2>RESTAURANT PORTAL</h2>
+      <div className="portal-sections">
+      <div className="portal-left">
+      <h3>Active Meals</h3>
       {activeMealList.map((meal) => {
         return (
           <div key={meal.mealName}>
@@ -34,7 +37,9 @@ function RestaurantPortal(props) {
           </div>
         );
       })}
-      <h2>Completed Orders</h2>
+      </div>
+      <div className="portal-right">
+      <h3>Completed Orders</h3>
       {activeCompletedList.map((completedMeal) => {
         return (
           <div key={`${completedMeal._id}`}>
@@ -42,6 +47,8 @@ function RestaurantPortal(props) {
           </div>
         );
       })}
+      </div>
+      </div>
     </div>
   );
 }

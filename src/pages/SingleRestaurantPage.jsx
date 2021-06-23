@@ -113,12 +113,15 @@ function SingleRestaurantPage(props) {
                     owner={owner}
                     user={user}
                   >
-                    {meal.mealName}
+                    {meal.mealName} : €{meal.price}
                   </Link>
                   {meal.reserved ? <p>RESERVED</p> : null}
                   <br />
                   {owner === user._id ? (
-                    <button onClick={(e) => handleDelete(e, meal._id)}>
+                    <button
+                      onClick={(e) => handleDelete(e, meal._id)}
+                      className="standardButtonSmallDelete"
+                    >
                       Delete {meal.name}
                     </button>
                   ) : null}
@@ -136,11 +139,8 @@ function SingleRestaurantPage(props) {
         {owner === user._id ? (
           <div>
             <RestaurantPortal restaurant={singleRestaurant} />
-            <button
-              onClick={editRestaurantToggle}
-              className="RestaurantPage-button"
-            >
-              {displayEditRestaurant ? <p>Hide</p> : <p>Edit Restaurant</p>}
+            <button onClick={editRestaurantToggle} className="standardButton">
+              {displayEditRestaurant ? <>Hide</> : <>Edit Restaurant </> }
             </button>
           </div>
         ) : null}

@@ -36,7 +36,7 @@
   padding: 10px 0 50px 0;
 }
 
-.Restaurant-sections {
+.Restaurant-sections, .portal-sections {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -44,7 +44,7 @@
 }
 
 .Restaurant-left,
-.Restaurant-right {
+.Restaurant-right, .portal-left, .portal-right {
   width: 40%;
   padding: 1rem;
   border-radius: 5px;
@@ -61,4 +61,48 @@
 
 .Restaurant-left p {
   padding: 0.5rem;
+}
+
+.Addmeal-div {
+  background: rgb(63, 63, 63);
+  border-radius: 5px;
+  margin: 1rem;
+  padding: 1rem;
+  width: 40%;
+}
+
+.Addmeal-input {
+  padding: 0.5rem;
+}
+
+.Restaurant-portal {
+  background: rgb(53, 53, 53);
+  width: 90%;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.portal-left {
+  background: #eb941a;
+  margin: 1rem 0;
+}
+
+.portal-right {
+  background: #089e32;
+  margin: 1rem 0;
+}
+
+.available-green {
+  color: #02641e;
+}
+
+.reserved-orange {
+  color: rgb(139, 0, 0)
+}
+
+.portal-reserved-meal, .portal-completed-meal {
+  background: rgba(0, 0, 0, 0.164);
+  border-radius: 3px;
+  padding: 0.5rem;
+  margin: 0.5rem;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import * as CONSTS from "../../utils/consts";
 import * as MEAL_SERVICE from "../../services/meal.service";
-// import * as PATHS from "../../utils/paths";
+import "../../pages/SingleRestaurant.css";
 
 function AddMeal(props) {
   const {
@@ -46,38 +46,41 @@ function AddMeal(props) {
       });
   }
   return (
-    <div>
-      <p>Please fill in the fields below</p>
+    <div className="Addmeal-div">
+      <h3>Add a meal</h3>
       <form className="RestaurantPage-form" onSubmit={handleSubmit}>
-        <div>
+        <div className="Addmeal-input">
           <label>Name of meal</label>
           <br />
           <input
+            className="standardInput"
             name="mealName"
             value={form.mealName}
             onChange={handleChange}
             required
           ></input>
         </div>
-        <div>
+        <div className="Addmeal-input">
           <label>Description</label>
           <br />
           <input
+            className="standardInput"
             name="description"
             value={form.description}
             onChange={handleChange}
           ></input>
         </div>
-        <div>
-          <label>Other Info/Allergy Info</label>
+        <div className="Addmeal-input">
+          <label>Allergy info/other</label>
           <br />
           <input
+            className="standardInput"
             name="otherInfo"
             value={form.otherInfo}
             onChange={handleChange}
           ></input>
         </div>
-        <div>
+        <div className="Addmeal-input">
           <label>Meal Type (please select)</label>
           <br />
           <select name="mealType" value={form.mealType} onChange={handleChange}>
@@ -86,10 +89,11 @@ function AddMeal(props) {
             <option value="vegetarian">Vegetarian</option>
           </select>
         </div>
-        <div>
+        <div className="Addmeal-input">
           <label>Price</label>
           <br />
           <input
+            className="standardInput"
             type="number"
             name="price"
             value={form.price}
@@ -98,7 +102,11 @@ function AddMeal(props) {
           ></input>
         </div>
         <br />
-        <button type="submit" className="RestaurantPage-button">
+        <button
+          type="submit"
+          className="RestaurantPage-button"
+          className="standardButton"
+        >
           Add Meal
         </button>
       </form>

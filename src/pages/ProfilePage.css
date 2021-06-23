@@ -29,7 +29,7 @@
 .Profile-completed-div {
   margin: 1rem 0 0 0;
   padding: 1rem 2rem;
-  width: 60vw;
+  width: 50vw;
   border-radius: 3px;
 }
 
@@ -52,6 +52,7 @@
 .Profile-completed-div {
   background-color: #089e32;
   margin-bottom: 2rem;
+  color: #1f063d;
 }
 
 input[type="file"] {

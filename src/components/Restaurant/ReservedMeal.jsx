@@ -69,36 +69,38 @@ function ReservedMeal(props) {
   }
 
   return (
-    <div>
-      <h3>
+    <div className="portal-reserved-meal">
+      <h4>
         {meal.mealName} : €{meal.price}
-      </h3>
+      </h4>
       {meal.reserved ? (
         <div>
-          <p>RESERVED</p>
-          <button onClick={(e) => handleCollect(e, meal.reservedBy)}>
-            Customer Collect
-          </button>
+          <p className="reserved-orange">RESERVED</p>
           {showCollect ? (
             <div>
+            <button onClick={(e) => hideCollect(e)} className="standardButtonSmall">Hide info</button>
               <p>
                 <strong>Reserved by: </strong>
                 {userCollect.username}
               </p>
-              <img src={userCollect.userImage} alt={userCollect.userName} />
+              <div
+        className="Profile-image-div"
+        style={{ backgroundImage: "url(" + userCollect.userImage + ")", margin: "0.5rem" }}
+      ></div>
               <br />
-              <button onClick={(e) => pickupMeal(e, meal._id, userCollect._id)}>
+              <button onClick={(e) => pickupMeal(e, meal._id, userCollect._id)} className="standardButtonSmall">
                 Collected and Paid
               </button>
-              <button onClick={(e) => unreserveMeal(e, meal._id)}>
+              <button onClick={(e) => unreserveMeal(e, meal._id)} className="standardButtonSmallDelete">
                 Release Reservation
               </button>
-              <button onClick={(e) => hideCollect(e)}>Cancel</button>
             </div>
-          ) : null}
+          ) : <button onClick={(e) => handleCollect(e, meal.reservedBy)} className="standardButtonSmall">
+            Customer Collect
+          </button>}
         </div>
       ) : (
-        <p>AVAILABLE</p>
+        <p className="available-green">AVAILABLE</p>
       )}
     </div>
   );

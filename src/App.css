@@ -35,7 +35,7 @@ body {
 
 .standardInput {
   text-align: center;
-  padding: 10px 60px;
+  padding: 10px 30px;
   border-radius: 3px;
   border: none;
   transition: all 1s;
@@ -50,7 +50,7 @@ body {
 }
 
 .standardButton,
-.standardButtonDelete {
+.standardButtonDelete, .standardButtonGrey {
   padding: 0.5em 1em;
   margin-left: 1em;
   background-color: 224, 224, 224;
@@ -65,7 +65,16 @@ body {
   margin: 1rem;
 }
 
-.standardButtonDelete:hover {
+.standardButtonSmall, .standardButtonSmallDelete {
+  padding: 0.5em;
+  border-radius: 2px;
+  color: #1f063d;
+  transition: all 0.2s ease-in-out;
+  margin: 0.5rem;
+  border: none;
+}
+
+.standardButtonDelete:hover, .standardButtonSmallDelete:hover {
   transform: scale(1.05);
   background-color: rgb(170, 19, 19);
   color: white;
@@ -74,6 +83,12 @@ body {
 .standardButton:hover {
   transform: scale(1.05);
   background-color: #089e32;
+}
+
+.standardButtonGrey:hover, .standardButtonSmall:hover {
+  transform: scale(1.05);
+  background-color: #585858;
+  color:white;
 }
 
 .standardTitle {
