@@ -65,7 +65,6 @@ select:focus {
   top: 0;
   font-size: 1.2rem;
   margin: 1rem;
-  -webkit-appearance: none;
 }
 
 .standardButtonSmall,
@@ -76,7 +75,6 @@ select:focus {
   transition: all 0.2s ease-in-out;
   margin: 0.5rem;
   border: none;
-  -webkit-appearance: none;
 }
 
 .standardButtonDelete:hover,
@@ -88,6 +86,7 @@ select:focus {
 
 .standardButton:hover {
   transform: scale(1.05);
+  background-color: #089e32;
 }
 
 .standardButtonGrey:hover,

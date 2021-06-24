@@ -3,6 +3,7 @@ import axios from "axios";
 import * as CONSTS from "../../utils/consts";
 import * as PATHS from "../../utils/paths";
 import { Link } from "react-router-dom";
+import "../../pages/AvailablePage.css";
 
 function MealList(props) {
   const [listOfMeals, setListOfMeals] = React.useState([]);
@@ -28,21 +29,48 @@ function MealList(props) {
   }
 
   return (
-    <div>
+    <div className="MealList-div">
       <h3>Available Meals</h3>
-      <button onClick={(e) => filterMeals(e, "meat")}>Meat/Fish</button>
-      <button onClick={(e) => filterMeals(e, "vegetarian")}>Vegetarian</button>
-      <button onClick={(e) => filterMeals(e, "vegan")}>Vegan</button>
-      <button onClick={(e) => filterMeals(e, "showall")}>Show All</button>
+      <div className="Available-filter">
+        <p>Filter list</p>
+        <button
+          onClick={(e) => filterMeals(e, "meat")}
+          className="standardButtonSmall"
+        >
+          Meat/Fish
+        </button>
+        <button
+          onClick={(e) => filterMeals(e, "vegetarian")}
+          className="standardButtonSmall"
+        >
+          Vegetarian
+        </button>
+        <button
+          onClick={(e) => filterMeals(e, "vegan")}
+          className="standardButtonSmall"
+        >
+          Vegan
+        </button>
+        <button
+          onClick={(e) => filterMeals(e, "showall")}
+          className="standardButtonSmall"
+        >
+          Show All
+        </button>
+      </div>
       {listOfMeals.map((meal) => {
         if (
           (filterWord === "showall" || meal.mealType === filterWord) &&
           !meal.reserved
         ) {
           return (
-            <section key={meal._id}>
+            <section className="Available-available-meal" key={meal._id}>
               <h4>
-                <Link to={`${PATHS.SINGLEMEAL}/${meal._id}`} user={user}>
+                <Link
+                  to={`${PATHS.SINGLEMEAL}/${meal._id}`}
+                  user={user}
+                  className="Available-available-link"
+                >
                   {meal.mealName}
                 </Link>
               </h4>

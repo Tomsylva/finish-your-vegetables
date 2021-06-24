@@ -2,6 +2,7 @@ import React from "react";
 import RestaurantList from "../components/Restaurant/RestaurantList";
 import MealList from "../components/Meal/MealList";
 import "../App.css";
+import "./AvailablePage.css";
 
 function AvailablePage(props) {
   const { user } = props;
@@ -9,8 +10,14 @@ function AvailablePage(props) {
   return (
     <div className="Available-page">
       <h1>Steaming hot food, looking to fill a hole in your area!</h1>
-      <RestaurantList className="RestaurantList-compomnent" user={user} />
-      <MealList className="MealList-component" user={user} />
+      <div className="Available-content">
+        <div className="Available-section">
+          <RestaurantList className="RestaurantList-compomnent" user={user} />
+        </div>
+        <div className="Available-section">
+          <MealList className="MealList-component" user={user} />
+        </div>
+      </div>
     </div>
   );
 }

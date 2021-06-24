@@ -25,8 +25,8 @@ function RestaurantList() {
 
   return (
     <div className="Restaurant-list-div">
-      <h3>Restaurants</h3>
-      {listOfRestaurants.map((restaurant) => {
+      {/* <h3>Restaurants</h3> */}
+      {/* {listOfRestaurants.map((restaurant) => {
         return (
           <section key={restaurant._id}>
             <Link to={`${PATHS.RESTAURANT}/${restaurant.restaurantName}`}>
@@ -35,7 +35,7 @@ function RestaurantList() {
             <p></p>
           </section>
         );
-      })}
+      })} */}
       <MapContainer
         center={[49.452, 11.076]}
         zoom={13}

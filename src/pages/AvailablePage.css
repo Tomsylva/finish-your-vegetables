@@ -1,3 +1,60 @@
 .Restaurant-list-div h3 {
   padding-top: 1rem;
 }
+
+.Available-content {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.Available-section {
+  width: 50%;
+  margin: 1.5rem 0;
+  height: 100%;
+}
+
+#MapContainer {
+  width: 100%;
+  height: 70vh;
+  z-index: 0;
+  border-radius: 0;
+}
+
+.MealList-div {
+  background-color: rgb(39, 39, 39);
+  height: 70.4vh;
+}
+
+.MealList-div h3 {
+  padding-top: 1rem;
+}
+
+.Available-filter {
+  padding: 1.5rem;
+}
+
+.Available-available-meal {
+  background: #089e32;
+  margin: 0.5rem 2rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+}
+
+.Available-available-meal h4 {
+  transition: all 0.2s ease-in-out;
+}
+
+.Available-available-meal h4:hover {
+  transform: scale(1.05);
+}
+
+.Available-available-link {
+  color: #1f063d;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.Available-available-link:hover {
+  color: white;
+}
