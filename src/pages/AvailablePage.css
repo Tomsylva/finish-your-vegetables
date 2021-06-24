@@ -22,7 +22,6 @@
 }
 
 .MealList-div {
-  background-color: rgb(39, 39, 39);
   height: 70.4vh;
 }
 
@@ -57,4 +56,17 @@
 
 .Available-available-link:hover {
   color: white;
+}
+
+@media screen and (max-width: 760px) {
+  .Restaurant-list-div {
+    display: none;
+  }
+  #Available-h1 {
+    display: none;
+  }
+  .MealList-div {
+    width: 100%;
+    padding-top: 100px;
+  }
 }

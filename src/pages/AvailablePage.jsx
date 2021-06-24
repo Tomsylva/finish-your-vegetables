@@ -9,7 +9,9 @@ function AvailablePage(props) {
 
   return (
     <div className="Available-page">
-      <h1>Steaming hot food, looking to fill a hole in your area!</h1>
+      <h1 id="Available-h1">
+        Steaming hot food, looking to fill a hole in your area!
+      </h1>
       <div className="Available-content">
         <div className="Available-section">
           <RestaurantList className="RestaurantList-compomnent" user={user} />
