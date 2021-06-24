@@ -7,8 +7,7 @@ import "../../pages/AvailablePage.css";
 
 function MealList(props) {
   const [listOfMeals, setListOfMeals] = React.useState([]);
-  const [filterWord, setFilterWord] = React.useState("showall");
-  const { user } = props;
+  const { user, filterWord, setFilterWord } = props;
 
   React.useEffect(() => {
     console.log("mounted");

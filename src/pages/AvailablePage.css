@@ -16,13 +16,10 @@
 
 #MapContainer {
   width: 100%;
-  height: 70vh;
+  height: 60vh;
   z-index: 0;
-  border-radius: 0;
-}
-
-.MealList-div {
-  height: 70.4vh;
+  border-radius: 4px;
+  margin: 0.5rem;
 }
 
 .MealList-div h3 {
@@ -48,25 +45,48 @@
   transform: scale(1.05);
 }
 
-.Available-available-link {
+.Available-available-link,
+.Available-restaurant-link {
   color: #1f063d;
   text-decoration: none;
   transition: all 0.2s ease-in-out;
 }
 
-.Available-available-link:hover {
+.Available-available-link:hover,
+.Available-restaurant-link:hover {
   color: white;
 }
 
-@media screen and (max-width: 760px) {
-  .Restaurant-list-div {
-    display: none;
+.restaurant-item {
+  background-color: #eb941a;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin: auto;
+  width: 60%;
+  align-self: center;
+}
+
+@media screen and (max-width: 650px) {
+  .Available-content {
+    /* height: 120vh; */
+    padding: 80px 0 100px 0;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+  .Available-section {
+    width: 100%;
   }
   #Available-h1 {
     display: none;
   }
   .MealList-div {
     width: 100%;
-    padding-top: 100px;
+    margin: 0;
+  }
+  .Restaurant-list-div {
+    width: 90%;
+    margin: 1rem;
+    margin-bottom: 100px;
+    align-items: center;
   }
 }

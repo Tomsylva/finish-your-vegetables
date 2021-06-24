@@ -6,6 +6,7 @@ import "./AvailablePage.css";
 
 function AvailablePage(props) {
   const { user } = props;
+  const [filterWord, setFilterWord] = React.useState("showall");
 
   return (
     <div className="Available-page">
@@ -14,10 +15,19 @@ function AvailablePage(props) {
       </h1>
       <div className="Available-content">
         <div className="Available-section">
-          <RestaurantList className="RestaurantList-compomnent" user={user} />
+          <RestaurantList
+            className="RestaurantList-compomnent"
+            user={user}
+            filterWord={filterWord}
+          />
         </div>
         <div className="Available-section">
-          <MealList className="MealList-component" user={user} />
+          <MealList
+            className="MealList-component"
+            user={user}
+            filterWord={filterWord}
+            setFilterWord={setFilterWord}
+          />
         </div>
       </div>
     </div>
