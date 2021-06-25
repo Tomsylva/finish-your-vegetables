@@ -4,6 +4,7 @@ import * as CONSTS from "../../utils/consts";
 import * as PATHS from "../../utils/paths";
 import { Link } from "react-router-dom";
 import "../../pages/AvailablePage.css";
+// import { motion, useViewportScroll } from "framer-motion";
 
 function MealList(props) {
   const [listOfMeals, setListOfMeals] = React.useState([]);

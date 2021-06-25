@@ -83,7 +83,7 @@ footer {
   .footer-logoutbtn {
     font-family: inherit;
     font-weight: inherit;
-    padding: 0.5em 1em;
+    padding: 0.5em;
     margin-left: 1em;
     background-color: #eb941a;
     border: none;
@@ -93,7 +93,7 @@ footer {
     transition: all 0.2s ease-in-out;
     position: sticky;
     top: 0;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 
