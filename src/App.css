@@ -55,7 +55,7 @@ select:focus {
 .standardButtonGrey {
   padding: 0.5em 1em;
   margin-left: 1em;
-  background-color: 224, 224, 224;
+  background: rgba(224, 224, 224);
   border: none;
   border-radius: 2px;
   cursor: pointer;
@@ -69,6 +69,7 @@ select:focus {
 
 .standardButtonSmall,
 .standardButtonSmallDelete {
+  background: rgba(224, 224, 224);
   padding: 0.5em;
   border-radius: 2px;
   color: #1f063d;
