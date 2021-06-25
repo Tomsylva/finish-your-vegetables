@@ -7,6 +7,7 @@ import LoadingComponent from "../components/Loading";
 import UpdateRestaurant from "../components/Restaurant/UpdateRestaurant";
 import RestaurantPortal from "../components/Restaurant/RestaurantPortal";
 import "./SingleRestaurant.css";
+import { motion } from "framer-motion";
 
 function SingleRestaurantPage(props) {
   const { history, user } = props;
@@ -80,7 +81,24 @@ function SingleRestaurantPage(props) {
           </div>
         ) : (
           <div className="Restaurant-sections">
-            <div className="Restaurant-left">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: {
+                  scale: 0.8,
+                  opacity: 0,
+                },
+                visible: {
+                  scale: 1,
+                  opacity: 1,
+                  transition: {
+                    delay: 0.2,
+                  },
+                },
+              }}
+              className="Restaurant-left"
+            >
               <p>
                 <strong>Location: </strong>
                 {location}
@@ -93,8 +111,25 @@ function SingleRestaurantPage(props) {
                 <strong></strong>
                 {otherInfo}
               </p>
-            </div>
-            <div className="Restaurant-right">
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: {
+                  scale: 0.8,
+                  opacity: 0,
+                },
+                visible: {
+                  scale: 1,
+                  opacity: 1,
+                  transition: {
+                    delay: 0.2,
+                  },
+                },
+              }}
+              className="Restaurant-right"
+            >
               <h3>Available Food</h3>
               {meals.map((meal) => {
                 return (
@@ -116,7 +151,7 @@ function SingleRestaurantPage(props) {
                   </div>
                 );
               })}
-            </div>
+            </motion.div>
           </div>
         )}
         <br />

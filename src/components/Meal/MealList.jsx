@@ -4,7 +4,6 @@ import * as CONSTS from "../../utils/consts";
 import * as PATHS from "../../utils/paths";
 import { Link } from "react-router-dom";
 import "../../pages/AvailablePage.css";
-import { motion /*, useViewportScroll*/ } from "framer-motion";
 
 function MealList(props) {
   const [listOfMeals, setListOfMeals] = React.useState([]);
@@ -27,28 +26,6 @@ function MealList(props) {
     event.preventDefault();
     setFilterWord(filter);
   }
-
-  const child = {
-    hidden: {
-      x: "+100%",
-    },
-    visible: {
-      x: 0,
-      transition: {
-        duration: 0.8,
-      },
-    },
-  };
-
-  const ulContainer = {
-    hidden: { x: "+100%" },
-    visible: {
-      x: 0,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
 
   return (
     <div className="MealList-div">
@@ -80,15 +57,14 @@ function MealList(props) {
           Show All
         </button>
       </div>
-      <motion.ul variants={ulContainer} initial="hidden" animate="visible">
+      <ul initial="hidden" animate="visible">
         {listOfMeals.map((meal) => {
           if (
             (filterWord === "showall" || meal.mealType === filterWord) &&
             !meal.reserved
           ) {
             return (
-              <motion.li
-                variants={child}
+              <li
                 style={{ listStyle: "none" }}
                 className="Available-available-meal"
                 key={meal._id}
@@ -102,11 +78,11 @@ function MealList(props) {
                     {meal.mealName}
                   </Link>
                 </h4>
-              </motion.li>
+              </li>
             );
           }
         })}
-      </motion.ul>
+      </ul>
     </div>
   );
 }
