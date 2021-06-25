@@ -5,7 +5,6 @@ import * as PATHS from "../utils/paths";
 import { Link } from "react-router-dom";
 import LoadingComponent from "../components/Loading";
 import UpdateRestaurant from "../components/Restaurant/UpdateRestaurant";
-// import * as MEAL_SERVICE from "../services/meal.service";
 import RestaurantPortal from "../components/Restaurant/RestaurantPortal";
 import "./SingleRestaurant.css";
 
@@ -43,13 +42,10 @@ function SingleRestaurantPage(props) {
     location,
     contact,
     otherInfo,
-    // _id,
     meals,
     owner,
     image,
   } = singleRestaurant;
-
-  console.log(singleRestaurant);
 
   if (isLoading) {
     return <LoadingComponent />;
@@ -70,53 +66,59 @@ function SingleRestaurantPage(props) {
         <br />
         {owner === user._id ? (
           <div>
-            <RestaurantPortal restaurant={singleRestaurant} user={user}/>   
+            <RestaurantPortal restaurant={singleRestaurant} user={user} />
             <button onClick={editRestaurantToggle} className="standardButton">
-              {displayEditRestaurant ? <>Hide</> : <>Edit Restaurant </> }
+              {displayEditRestaurant ? <>Hide</> : <>Edit Restaurant </>}
             </button>
             {displayEditRestaurant ? (
-          <UpdateRestaurant
-            currentRestaurant={singleRestaurant}
-            user={user}
-            history={history}
-          />
-        ) : null}
+              <UpdateRestaurant
+                currentRestaurant={singleRestaurant}
+                user={user}
+                history={history}
+              />
+            ) : null}
           </div>
-        ) : <div className="Restaurant-sections">
-          <div className="Restaurant-left">
-            <p>
-              <strong>Location: </strong>
-              {location}
-            </p>
-            <p>
-              <strong>Contact: </strong>
-              {contact}
-            </p>
-            <p>
-              <strong></strong>
-              {otherInfo}
-            </p>
+        ) : (
+          <div className="Restaurant-sections">
+            <div className="Restaurant-left">
+              <p>
+                <strong>Location: </strong>
+                {location}
+              </p>
+              <p>
+                <strong>Contact: </strong>
+                {contact}
+              </p>
+              <p>
+                <strong></strong>
+                {otherInfo}
+              </p>
+            </div>
+            <div className="Restaurant-right">
+              <h3>Available Food</h3>
+              {meals.map((meal) => {
+                return (
+                  <div key={meal._id} className="Restaurant-active-meal">
+                    <Link
+                      to={`${PATHS.SINGLEMEAL}/${meal._id}`}
+                      owner={owner}
+                      user={user}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <p className="standardLink">
+                        {meal.mealName} : €{meal.price}
+                      </p>
+                    </Link>
+                    {meal.reserved ? (
+                      <p className="reserved-orange">RESERVED</p>
+                    ) : null}
+                    <br />
+                  </div>
+                );
+              })}
+            </div>
           </div>
-          <div className="Restaurant-right">
-            <h3>Available Food</h3>
-            {meals.map((meal) => {
-              return (
-                <div key={meal._id} className="Restaurant-active-meal">
-                  <Link
-                    to={`${PATHS.SINGLEMEAL}/${meal._id}`}
-                    owner={owner}
-                    user={user}
-                    style={{textDecoration: "none"}}
-                  >
-                    <p className="standardLink">{meal.mealName} : €{meal.price}</p>
-                  </Link>
-                  {meal.reserved ? <p className="reserved-orange">RESERVED</p> : null}
-                  <br />
-                </div>
-              );
-            })}
-          </div>
-        </div>}
+        )}
         <br />
       </div>
     </div>
