@@ -64,6 +64,11 @@ function HomePage(props) {
               Sign up
             </Link>
           </div>
+          <br />
+          <p style={{ color: "#1f063d", padding: "2rem" }}>
+            Note: this is portfolio project, not an actual food ordering app.
+            Thanks for popping by - Tom :)
+          </p>
         </motion.div>
       </div>
     </div>
