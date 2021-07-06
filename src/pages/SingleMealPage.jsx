@@ -68,6 +68,7 @@ function SingleMealPage(props) {
       const mealIsReservedBy = null;
       setMealIsReserved(mealIsReserved);
       setIsReservedBy(mealIsReserved ? mealIsReservedBy : null);
+      setUserOwnsMeal(false);
     });
   }
 
