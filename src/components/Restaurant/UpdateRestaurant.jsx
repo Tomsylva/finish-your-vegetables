@@ -56,7 +56,6 @@ function UpdateRestaurant(props) {
 
     RESTAURANT_SERVICE.UPDATE_IMAGE(formBody, accessToken, restaurantId)
       .then((response) => {
-        console.log("RESPONSE: ", response);
         setRestaurantImage(response.data.updatedRestaurant.image);
         window.location.reload();
         //UPDATE STATE
@@ -127,21 +126,33 @@ function UpdateRestaurant(props) {
         <button type="submit" className="standardButton">
           Submit Changes
         </button>
-        <p style={{fontSize: "3rem"}}><strong><span className="color-purple">.</span>
+        <p style={{ fontSize: "3rem" }}>
+          <strong>
+            <span className="color-purple">.</span>
             <span className="color-orange">.</span>
-            <span className="color-green">.</span></strong></p>
+            <span className="color-green">.</span>
+          </strong>
+        </p>
       </form>
       <form onSubmit={handleImage} className="RestaurantPage-form">
         <div>
           {errorMessage ? <p>{errorMessage}</p> : null}
           <input type="file" name="image" onChange={handleImageInput} />
-          <button type="submit" className="standardButton">Upload Image</button>
+          <button type="submit" className="standardButton">
+            Upload Image
+          </button>
         </div>
       </form>
-      <p style={{fontSize: "3rem"}}><strong><span className="color-purple">.</span>
-            <span className="color-orange">.</span>
-            <span className="color-green">.</span></strong></p>
-      <button onClick={handleDelete} className="standardButtonDelete">Delete This Restaurant</button>
+      <p style={{ fontSize: "3rem" }}>
+        <strong>
+          <span className="color-purple">.</span>
+          <span className="color-orange">.</span>
+          <span className="color-green">.</span>
+        </strong>
+      </p>
+      <button onClick={handleDelete} className="standardButtonDelete">
+        Delete This Restaurant
+      </button>
     </div>
   );
 }
