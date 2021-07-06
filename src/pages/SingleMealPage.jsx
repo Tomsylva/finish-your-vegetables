@@ -57,6 +57,7 @@ function SingleMealPage(props) {
       const mealIsReservedBy = response.data.reservedMeal.reservedBy.username;
       setMealIsReserved(mealIsReserved);
       setIsReservedBy(mealIsReserved ? mealIsReservedBy : null);
+      setUserOwnsMeal(true);
     });
   }
 
@@ -84,8 +85,12 @@ function SingleMealPage(props) {
       <br />
       {!mealIsReserved ? (
         <div>
-        <p><strong className="available-green">AVAILABLE</strong></p>
-        <button onClick={toggleIsReserved} className="standardButton">Reserve This Meal</button>
+          <p>
+            <strong className="available-green">AVAILABLE</strong>
+          </p>
+          <button onClick={toggleIsReserved} className="standardButton">
+            Reserve This Meal
+          </button>
         </div>
       ) : (
         <div>
@@ -95,7 +100,12 @@ function SingleMealPage(props) {
             {isReservedBy}
             <br />
             {userOwnsMeal ? (
-              <button onClick={toggleUnreserve} className="standardButtonDelete">Release Food</button>
+              <button
+                onClick={toggleUnreserve}
+                className="standardButtonDelete"
+              >
+                Release Food
+              </button>
             ) : null}
           </p>
         </div>
