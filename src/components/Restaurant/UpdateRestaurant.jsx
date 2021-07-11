@@ -3,7 +3,7 @@ import * as RESTAURANT_SERVICE from "../../services/restaurant.service";
 import * as CONSTS from "../../utils/consts";
 
 function UpdateRestaurant(props) {
-  const { currentRestaurant, /*user,*/ history } = props;
+  const { currentRestaurant, history } = props;
   const [restaurantImage, setRestaurantImage] = React.useState(
     currentRestaurant.image
   );
@@ -29,8 +29,8 @@ function UpdateRestaurant(props) {
     RESTAURANT_SERVICE.UPDATE_RESTAURANT(form, accessToken, currentRestaurant)
       .then((response) => {
         if (response.data.success) {
+          console.log("RESPONSE DATA:", response.data);
           window.location.reload();
-          //UPDATE STATE
         }
       })
       .catch((err) => {
