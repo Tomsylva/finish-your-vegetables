@@ -42,8 +42,6 @@ function UpdateProfile(props) {
     const accessToken = localStorage.getItem(CONSTS.ACCESS_TOKEN);
     PROFILE_SERVICE.DELETE_PROFILE(accessToken)
       .then((response) => {
-        console.log(response);
-
         if (response.data.success) {
           localStorage.removeItem("access_token");
           history.push("/");

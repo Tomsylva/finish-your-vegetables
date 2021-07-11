@@ -40,7 +40,6 @@ function RestaurantList(props) {
           const filteredRestaurant = restaurant.meals.filter(
             (meal) => meal.mealType === filterWord
           );
-          console.log("FIL RES", filteredRestaurant);
           if (filteredRestaurant.length || filterWord === "showall") {
             return <RestaurantMarker restaurant={restaurant} />;
           }

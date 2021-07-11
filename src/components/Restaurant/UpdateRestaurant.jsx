@@ -29,7 +29,6 @@ function UpdateRestaurant(props) {
     RESTAURANT_SERVICE.UPDATE_RESTAURANT(form, accessToken, currentRestaurant)
       .then((response) => {
         if (response.data.success) {
-          console.log("RESPONSE DATA:", response.data);
           window.location.reload();
         }
       })

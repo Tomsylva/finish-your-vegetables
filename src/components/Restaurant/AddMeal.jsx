@@ -37,8 +37,7 @@ function AddMeal(props) {
       },
       accessToken
     )
-      .then((response) => {
-        console.log("response: ", response);
+      .then(() => {
         window.location.reload(); //IS THERE A BETTER WAY TO DO THIS?
       })
       .catch((err) => {

@@ -11,9 +11,6 @@ function ReservedMeal(props) {
     handleUpdateCompleted,
   } = props;
 
-  const {_id} = meal;
-  console.log("MEAL ID", meal._id)
-
   const [showCollect, setShowCollect] = React.useState(false);
   const [userCollect, setUserCollect] = React.useState({});
 
@@ -42,10 +39,9 @@ function ReservedMeal(props) {
       accessToken,
       currentOwner,
       mealId
-    ).then((response) => {
+    ).then(() => {
       setShowCollect(false);
       setUserCollect({});
-      console.log("RESPONSE", response);
       window.location.reload();
     });
   }
@@ -96,36 +92,55 @@ function ReservedMeal(props) {
           <p className="reserved-orange">RESERVED</p>
           {showCollect ? (
             <div className="collection-div">
-            <button onClick={(e) => hideCollect(e)} className="standardButtonSmall">Hide info</button>
+              <button
+                onClick={(e) => hideCollect(e)}
+                className="standardButtonSmall"
+              >
+                Hide info
+              </button>
               <p>
                 <strong>Reserved by: </strong>
                 {userCollect.username}
               </p>
               <div
-        className="Profile-image-div"
-        style={{ backgroundImage: "url(" + userCollect.userImage + ")", margin: "0.5rem" }}
-      ></div>
+                className="Profile-image-div"
+                style={{
+                  backgroundImage: "url(" + userCollect.userImage + ")",
+                  margin: "0.5rem",
+                }}
+              ></div>
               <br />
-              <button onClick={(e) => pickupMeal(e, meal._id, userCollect._id)} className="standardButtonSmall">
+              <button
+                onClick={(e) => pickupMeal(e, meal._id, userCollect._id)}
+                className="standardButtonSmall"
+              >
                 Collected and Paid
               </button>
-              <button onClick={(e) => unreserveMeal(e, meal._id)} className="standardButtonSmallDelete">
+              <button
+                onClick={(e) => unreserveMeal(e, meal._id)}
+                className="standardButtonSmallDelete"
+              >
                 Release Reservation
               </button>
             </div>
-          ) : <button onClick={(e) => handleCollect(e, meal.reservedBy)} className="standardButtonSmall">
-            Customer Collect
-          </button>}
+          ) : (
+            <button
+              onClick={(e) => handleCollect(e, meal.reservedBy)}
+              className="standardButtonSmall"
+            >
+              Customer Collect
+            </button>
+          )}
         </div>
       ) : (
         <p className="available-green">AVAILABLE</p>
       )}
       <button
-onClick={(e) => handleDelete(e, meal._id)}
-className="standardButtonSmallDelete"
->
-Delete
-</button>
+        onClick={(e) => handleDelete(e, meal._id)}
+        className="standardButtonSmallDelete"
+      >
+        Delete
+      </button>
     </div>
   );
 }
