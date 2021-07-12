@@ -9,6 +9,7 @@ function RestaurantPortal(props) {
   const { restaurant, user } = props;
   const { _id } = restaurant;
   const { meals } = restaurant;
+
   const [activeRestaurant, setActiveRestaurant] = React.useState(restaurant);
   const [activeMealList, setActiveMealList] = React.useState(meals);
   const [activeCompletedList, setActiveCompletedList] = React.useState(
