@@ -42,6 +42,8 @@ function RestaurantList(props) {
           );
           if (filteredRestaurant.length || filterWord === "showall") {
             return <RestaurantMarker restaurant={restaurant} />;
+          } else {
+            return null;
           }
         })}
       </MapContainer>
@@ -59,6 +61,8 @@ function RestaurantList(props) {
               </Link>
             </section>
           );
+        } else {
+          return null;
         }
       })}
     </div>

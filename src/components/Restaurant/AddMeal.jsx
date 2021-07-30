@@ -101,11 +101,7 @@ function AddMeal(props) {
           </select>
         </div>
         <br />
-        <button
-          type="submit"
-          className="RestaurantPage-button"
-          className="standardButton"
-        >
+        <button type="submit" className="RestaurantPage-button standardButton">
           Add Meal
         </button>
       </form>

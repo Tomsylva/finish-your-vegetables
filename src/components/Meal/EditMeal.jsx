@@ -1,6 +1,4 @@
 import React from "react";
-import * as MEAL_SERVICE from "../../services/meal.service";
-import * as CONSTS from "../../utils/consts";
 
 function EditMeal(props) {
   const { currentRestaurant, user, singleMeal } = props;

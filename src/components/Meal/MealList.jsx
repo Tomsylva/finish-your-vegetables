@@ -80,6 +80,8 @@ function MealList(props) {
                 </h4>
               </li>
             );
+          } else {
+            return null;
           }
         })}
       </ul>
