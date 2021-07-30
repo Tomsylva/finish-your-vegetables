@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as PATHS from "../utils/paths";
-// import * as CONSTS from "../utils/consts";
 import "./AboutPage.css";
 
 function AboutPage() {

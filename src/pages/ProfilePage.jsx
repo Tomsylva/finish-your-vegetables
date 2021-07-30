@@ -36,7 +36,6 @@ function ProfilePage(props) {
   return (
     <div className="Profile-page">
       <h1 className="Profile-username">{username}'s Profile</h1>
-      {/* <img src={userImage} alt={username} className="Profile-image" /> */}
       <div
         className="Profile-image-div"
         style={{ backgroundImage: "url(" + userImage + ")" }}
