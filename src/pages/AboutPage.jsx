@@ -38,10 +38,10 @@ function AboutPage() {
             better place.
           </p>
 
-          <Link to={PATHS.SIGNUPPAGE} className="authLink">
+          <Link to={PATHS.SIGNUPPAGE} className="authLink authLinkBlack">
             Sign up
           </Link>
-          <Link to={PATHS.HOMEPAGE} className="authLink">
+          <Link to={PATHS.HOMEPAGE} className="authLink authLinkBlack">
             Go back
           </Link>
         </div>

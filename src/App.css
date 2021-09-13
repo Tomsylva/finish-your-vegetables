@@ -117,3 +117,7 @@ select:focus {
   transform: scale(1.05);
   color: white;
 }
+
+.authLinkBlack {
+  color: black;
+}
