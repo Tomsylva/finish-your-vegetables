@@ -37,13 +37,19 @@ function AboutPage() {
             We look forward to helping you to help make the world a slightly
             better place.
           </p>
-
-          <Link to={PATHS.SIGNUPPAGE} className="authLink authLinkBlack">
+          <br />
+          <Link
+            to={PATHS.SIGNUPPAGE}
+            className="standardLink standardLinkBlack"
+          >
             Sign up
           </Link>
-          <Link to={PATHS.HOMEPAGE} className="authLink authLinkBlack">
+          <Link to={PATHS.HOMEPAGE} className="standardLink standardLinkBlack">
             Go back
           </Link>
+          <br />
+          <br />
+          <br />
         </div>
       </div>
     </div>

@@ -118,6 +118,16 @@ select:focus {
   color: white;
 }
 
-.authLinkBlack {
-  color: black;
+.standardLinkBlack {
+  color: rgb(70, 70, 70);
+  background-color: rgb(230, 230, 230);
+  padding: 20px !important;
+  text-decoration: none;
+  margin: 3px;
+  transition: all 0.2s ease-in-out;
+  border-radius: 5px;
+}
+
+.standardLinkBlack:hover {
+  background-color: #089e32;
 }

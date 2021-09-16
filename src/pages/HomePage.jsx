@@ -65,8 +65,16 @@ function HomePage(props) {
             </Link>
           </div>
           <br />
-          <p style={{ color: "#1f063d", padding: "2rem" }}>
-            Note: this is portfolio project, not an actual food ordering app.
+          <p
+            style={{
+              color: "#1f063d",
+              padding: "2rem",
+              backgroundColor: "rgba(255, 255, 255, 0.7)",
+              width: "50vw",
+              borderRadius: "7px",
+            }}
+          >
+            Note: this is a portfolio project, not an actual food ordering app.
             Thanks for popping by - Tom :)
           </p>
         </motion.div>
